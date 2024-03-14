@@ -7,8 +7,8 @@ Escreva um ou dois parágrafos resumindo o objetivo do seu projeto.
 * Ana Paula de Oliveira
 * Júlia Mello Leal Cupertino
 * Lívia Cristina taciano Ferreira
-* Pedro Gabriel Ferreira Passos
 * Mayara Rocha Moura de Almeida
+* Pedro Gabriel Ferreira Passos
 
 ## Professores responsáveis
 
