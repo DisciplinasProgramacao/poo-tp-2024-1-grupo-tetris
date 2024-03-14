@@ -6,6 +6,7 @@ Escreva um ou dois parágrafos resumindo o objetivo do seu projeto.
 
 * Ana Paula de Oliveira
 * Júlia Mello Leal Cupertino
+* Larissa Soares Bonfim
 * Lívia Cristina taciano Ferreira
 * Mayara Rocha Moura de Almeida
 * Pedro Gabriel Ferreira Passos
