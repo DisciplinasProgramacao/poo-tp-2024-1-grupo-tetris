@@ -16,3 +16,6 @@ Versão 01 - Revisão 2:
 Versão 01 - Revisão 3:
 ![Restaurante Vegano - Versão 01 Revisão 3](https://github.com/DisciplinasProgramacao/poo-tp-2024-1-grupo-tetris/assets/104520144/58168f48-c40d-4ffd-99b3-1303eb9c3b26)
 
+Versão 01 - Revisão 4:
+![Diagrama Restaurante-Diagrama UML drawio](https://github.com/DisciplinasProgramacao/poo-tp-2024-1-grupo-tetris/assets/101272935/70c81913-2e36-4aae-a4fa-a42dd7a29980)
+
