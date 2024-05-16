@@ -3,28 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-
 namespace Requisicao
 {
-    class Program
+    public class Requisicao
     {
         private int idRequisicao;
         private int qtdPessoas;
-        private int mesasocupadas;
-        private dateTime entradacliente;
-        private Datetime saidacliente;
+        private int mesasOcupadas;
+        private DateTime entradaCliente;
+        private Datetime saidaCliente;
 
 
         /// <summary>
         /// Gerencia as entras, se entrar cliente ele soma na variavel de mesas 
         /// </summary>
         /// <returns>True para mesa disponivel</returns>
-        public bool GerenciasEntrada(maxMesas)
+        public bool gerenciarEntrada(int maxMesas)
         {
-            if (mesasocupadas < maxMesas)
+            if (mesasOcupadas < maxMesas)
             {
-                mesasocupadas++;
-                entradacliente = DateTime.Now; 
+                mesasOcupadas++;
+                entradaCliente = DateTime.Now; 
                 return true; 
             }
             else
@@ -34,13 +33,13 @@ namespace Requisicao
         }
 
         /// <summary>
-        /// Método para gerencias Saida do restaurante. 
+        /// Método para gerenciar Saida do restaurante. 
         /// </summary>
-        public void GerenciarSaida()
+        public void gerenciarSaida()
         {
-            if (Mesas_ocupadas > 0)
+            if (mesasOcupadas > 0)
             {
-                Mesas_ocupadas--; // Decrementa o número de mesas ocupadas
+                mesasOcupadas--; // Decrementa o número de mesas ocupadas
                 return true; // Cliente saiu com sucesso
             }
             else

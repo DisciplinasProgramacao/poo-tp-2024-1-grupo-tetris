@@ -1,13 +1,14 @@
-sing System;
+using System;
 using System.Reflection;
-class Mesa
+
+public class Mesa
 {
     /// <summary>
     /// Atributos referentes a capacidade de pessoas que cabem em uma mesa
     /// e se a mesa se encontra ocupada ou disponível.
     /// </summary>
-    int capacidade; 
-    bool isOcupada;
+    private int capacidade; 
+    private bool isOcupada;
 
     /// <summary>
     /// Método que liberarMesa é responsável por verificar se determinada mesa está ocupada ou não.
