@@ -1,16 +1,23 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-public class Cardapio
+namespace TrabalhoPratico
 {
-    private List<Produto> itens;
+    public class Cardapio
+    {
+        private List<Produto> itens;
 
-    public Cardapio()
-	{
-		itens = new List<Produto>();
-	}
+        public Cardapio()
+        {
+            itens = new List<Produto>();
+        }
 
-	public void apresentarCardapio()
-	{
+        public void apresentarCardapio()
+        {
 
-	}
+        }
+    }
 }
