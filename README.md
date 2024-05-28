@@ -10,6 +10,7 @@ Escreva um ou dois parágrafos resumindo o objetivo do seu projeto.
 * Lívia Cristina taciano Ferreira
 * Mayara Rocha Moura de Almeida
 * Pedro Gabriel Ferreira Passos
+* Samuel Mesquita da Fonseca
 
 ## Professores responsáveis
 
