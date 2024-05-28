@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,9 +15,13 @@ namespace TrabalhoPratico
             itens = new List<Produto>();
         }
 
-        public void apresentarCardapio()
+        public string apresentarCardapio()
         {
-
+            foreach (Produto item in itens) 
+            {
+                minhaString += (idProduto) + " - " + item.ToString();
+                return minhaString;
+            }
         }
     }
 }
