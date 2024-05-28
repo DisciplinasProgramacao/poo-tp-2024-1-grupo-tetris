@@ -17,25 +17,35 @@ namespace TrabalhoPratico
         private bool isOcupada;
 
         /// <summary>
-        /// Método que liberarMesa é responsável por verificar se determinada mesa está ocupada ou não.
-        /// Emitindo no sistema uma mensagem infomando o status da disponibilidade. 
+        /// Construtor da classe Mesa, inicializando a capacidade e o estado de ocupação.
         /// </summary>
-        /// <returns> Retorna false caso a mesa NÃO esteja ocupada e true se estiver ocupada</returns>
+        /// <param name="capacidade">Capacidade de pessoas que a mesa pode acomodar</param>
+        public Mesa(int capacidade)
+        {
+            this.capacidade = capacidade;
+            this.isOcupada = false;
+        }
+
+        /// <summary>
+        /// Método que liberarMesa é responsável por verificar se determinada mesa está disponível.
+        /// </summary>
+        /// <returns> Retorna false caso a mesa esteja disponível.</returns>
         public bool liberarMesa()
         {
             isOcupada = true;
             if (!isOcupada)
             {
-                Console.WriteLine("Mesa Disponível!");
                 return false;
             }
-            else
-            {
-                Console.WriteLine("Mesa Ocupada!");
-                return true;
-            }
         }
-
+        /// <summary>
+        /// Método que ocuparMesa é responsável por verificar se determinada mesa está ocupada.
+        /// </summary>
+        /// <returns>Retorna true caso a mesa esteja ocupada.</returns>
+        public bool ocuparMesa()
+        {
+            isOcupada = true;
+        }
         /// <summary>
         /// Método verificarDisponibilidade é responsável por verificar se existem mesas disponíveis compatíveis
         /// com a capacidade de pessoas solicitadas.
@@ -46,12 +56,6 @@ namespace TrabalhoPratico
         {
             if (!isOcupada && qtdPessoas <= capacidade)
             {
-                Console.WriteLine("Mesa Disponível!");
-                return true;
-            }
-            else
-            {
-                Console.WriteLine("Capacidade Insuficiente!");
                 return true;
             }
         }
