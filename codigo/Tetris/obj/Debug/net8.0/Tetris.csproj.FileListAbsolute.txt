@@ -1,0 +1,5 @@
+C:\Users\samuel mesquita\Desktop\poo-tp-2024-1-grupo-tetris\codigo\Tetris\obj\Debug\net8.0\Tetris.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\samuel mesquita\Desktop\poo-tp-2024-1-grupo-tetris\codigo\Tetris\obj\Debug\net8.0\Tetris.AssemblyInfoInputs.cache
+C:\Users\samuel mesquita\Desktop\poo-tp-2024-1-grupo-tetris\codigo\Tetris\obj\Debug\net8.0\Tetris.AssemblyInfo.cs
+C:\Users\samuel mesquita\Desktop\poo-tp-2024-1-grupo-tetris\codigo\Tetris\obj\Debug\net8.0\Tetris.csproj.CoreCompileInputs.cache
+C:\Users\samuel mesquita\Desktop\poo-tp-2024-1-grupo-tetris\codigo\Tetris\obj\Debug\net8.0\Tetris.sourcelink.json
