@@ -5,10 +5,9 @@ Escreva um ou dois parágrafos resumindo o objetivo do seu projeto.
 ## Alunos integrantes da equipe
 
 * Ana Paula de Oliveira
+* Christopher Carpegiane De Souza Rocha
 * Júlia Mello Leal Cupertino
-* Larissa Soares Bonfim
 * Lívia Cristina taciano Ferreira
-* Mayara Rocha Moura de Almeida
 * Pedro Gabriel Ferreira Passos
 * Samuel Mesquita da Fonseca
 
