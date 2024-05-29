@@ -22,3 +22,7 @@ Versão 01 - Revisão 4:
 
 Versão 02:
 ![Restaurante Vegano - Versão 02](https://github.com/DisciplinasProgramacao/poo-tp-2024-1-grupo-tetris/assets/104520144/2ed35e30-92ef-48aa-9d64-95cc42198da7)
+
+Versão 02 - Revisão 2
+![image](https://github.com/DisciplinasProgramacao/poo-tp-2024-1-grupo-tetris/assets/101272935/df3b11a0-9dcb-4e19-ad80-64dd70629891)
+
