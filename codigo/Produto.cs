@@ -13,11 +13,15 @@ namespace TrabalhoPratico
         private double valor;
         private int quant;
 
-        public Produto()
+        // Construtor da classe Produto
+        public Produto(int idProduto, string descricao, double valor, int quantidadeDisponivel)
         {
-
+            IdProduto = idProduto;
+            Descricao = descricao;
+            Valor = valor;
+            QuantidadeDisponivel = quantidadeDisponivel;
         }
-    }
+     }
 }
 
 
