@@ -24,7 +24,7 @@ namespace TrabalhoPratico
         /// <param name="produto">Produto a ser adicionado.</param>
         public void AdicionarProduto(Produto produto)
         {
-        itens.Add(produto);
+            itens.Add(produto);
         }
 
         /// <summary>
@@ -32,11 +32,30 @@ namespace TrabalhoPratico
         /// </summary>
         public string apresentarCardapio()
         {
-           Console.WriteLine("----- Cardápio -----");
-        foreach (var produto in itens)
+            Console.WriteLine("----- Cardápio -----");
+            foreach (var produto in itens)
+            {
+                Console.WriteLine($"ID: {produto.IdProduto} | Descrição: {produto.Descricao} | Valor: {produto.Valor:C2}");
+            }
+        }
+
+
+        /// <summary>
+        /// Busca um produto pelo id no cardápio e retorna seus dados.
+        /// </summary>
+        /// <param name="idProduto">ID do produto a ser buscado.</param>
+        /// <returns>Produto encontrado ou null se não encontrado.</returns>
+        public Produto BuscarProduto(int idProduto)
         {
-            Console.WriteLine($"ID: {produto.IdProduto} | Descrição: {produto.Descricao} | Valor: {produto.Valor:C2}");
+            foreach (var produto in itens)
+            {
+                if (produto.IdProduto == idProduto)
+                {
+                    return produto;
+                }
+            }
+            return null; // Produto não encontrado;
         }
-        }
+        
     }
 }
