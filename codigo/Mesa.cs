@@ -15,6 +15,7 @@ namespace TrabalhoPratico
         /// </summary>
         private int capacidade;
         private bool isOcupada;
+        private int numero;
 
         /// <summary>
         /// Construtor da classe Mesa, inicializando a capacidade e o estado de ocupação.
