@@ -159,5 +159,34 @@ namespace TrabalhoPratico
                 Console.WriteLine($"Mesa com ID {mesa.Id} já existe no restaurante.");
             }
         }
+        public void buscaRequisicao()
+        {
+            Requisicao requisicao = requisicaoOn.Find(r => r.idRequisicao == idRequisicao);
+            if (requisicao == null)
+            {
+                Console.WriteLine("Requisição não encontrada.");
+            }
+            return requisicao;
+        }
+
+        public void exibirCardapio()
+        {
+            Console.WriteLine("----- Cardápio -----");
+            System.Console.WriteLine(cardapio.apresentarCardapio());
+        }
+
+        public void incluirProdutoRequisicao(int idProduto, int idRequisicao)
+        {
+            Produto produto = cardapio.buscarProduto(idProduto);
+            Requisicao requisicao = buscaRequisicao(idRequisicao);
+            if (requisicao != null)
+            {
+                Pedido pedido = requisicao.Pedido;
+                if (pedido != null)
+                {
+                    pedido.AdicionarItem(produto);
+                }
+            }
+        }
     }
 }
