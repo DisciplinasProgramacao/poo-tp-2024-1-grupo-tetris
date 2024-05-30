@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,7 +21,13 @@ namespace TrabalhoPratico
             Valor = valor;
             QuantidadeDisponivel = quantidadeDisponivel;
         }
-     }
+
+        //Sobrescreve o ToString levando todos os dados do produto.
+        public override string ToString()
+        {
+            return $"ID: {IdProduto} | Descrição: {Descricao} | Valor: {Valor:C2} | Quantidade Disponível: {QuantidadeDisponivel}";
+        }
+    }
 }
 
 
