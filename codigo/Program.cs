@@ -27,8 +27,8 @@ namespace TrabalhoPratico
             cabecalho();
             Console.WriteLine("1 - Cadastrar Cliente");
             Console.WriteLine("2 - Localizar Cliente");
-            Console.WriteLine("3 - ");
-            Console.WriteLine("4 - ");
+            Console.WriteLine("3 - Criar Requisição");
+            Console.WriteLine("4 - Finalizar Requisição");
             Console.WriteLine("5 - ");
             Console.WriteLine("0 - Sair");
             Console.Write("Digite sua opção: ");
@@ -64,6 +64,7 @@ namespace TrabalhoPratico
             idCli = int.Parse(Console.ReadLine());
             quem = clientes.localizar(idCli);
             return quem;
+
         }
 
         public static Requisicao criarRequisicao()
@@ -86,27 +87,43 @@ namespace TrabalhoPratico
             return novaRequisicao;
         }
 
-        public static void alocarRequisicao()
+        public static void alocarRequisicao(Requisicao requisicao)
         {
+            int alocarReq = 0;
+
+            if (alocarReq < MAX_MESAS)
+            {
+                alocarRequisicao(requisicao);
+                alocarReq++;
+            }
+            else
+            {
+                filaEspera.Enqueue(requisicao);
+                InserirFila();
+                Console.WriteLine("Todas as mesas estão ocupadas no momento. Requisição inserida na fila de espera!")
+            } 
 
         }
 
         public static void finalizarRequisicao()
         {
-
+            fecharRequisicao(idRequisicao);
+            atualizarFila();
         }
 
-        public static Requisicao atualizarFila() 
-        { 
-        
+        public static Requisicao atualizarFila()
+        {
+
         }
 
         public static void Main(string[] args)
         {
             Cliente = new Cliente();
+            Requisicao = new Requisicao();
             int opcao;
 
             Cliente clienteAtual;
+            Requisicao novaRequisicao;
 
             do
             {
@@ -119,6 +136,7 @@ namespace TrabalhoPratico
                         {
                             clienteAtual = cadastrarCliente();
                         }
+                        pausa();
                         break;
                     case 2:
                         clienteAtual = localizarCliente();
@@ -133,10 +151,20 @@ namespace TrabalhoPratico
                         pausa();
                         break;
                     case 3:
-
+                        if (novaRequisicao != null)
+                            novaRequisicao = criarRequisicao();
+                        pausa();
                         break;
                     case 4:
-
+                        if (idRequisicao != null)
+                        {
+                            idRequisicao = finalizarRequisicao();
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Requisição de nº {idRequisicao} não encontrada!");
+                        }
+                        pausa();
                         break;
                 }
             } while (opcao != 0);
