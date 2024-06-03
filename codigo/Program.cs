@@ -14,6 +14,7 @@ namespace TrabalhoPratico
             Console.Write("\nTecle Enter para continuar.");
             Console.ReadKey();
         }
+        
         public static void cabecalho()
         {
             Console.Clear();
@@ -64,7 +65,6 @@ namespace TrabalhoPratico
             idCli = int.Parse(Console.ReadLine());
             quem = clientes.localizar(idCli);
             return quem;
-
         }
 
         public static Requisicao criarRequisicao()
@@ -88,13 +88,11 @@ namespace TrabalhoPratico
         }
 
         public static void alocarRequisicao(Requisicao requisicao)
-        {
-            int alocarReq = 0;
-
-            if (alocarReq < MAX_MESAS)
+        {          
+            if (mesasOcupadas < MAX_MESAS)
             {
-                alocarRequisicao(requisicao);
-                alocarReq++;
+                mesasOcupadas++;
+                Console.WriteLine($"Requisição de nº {idRequisicao} alocada! Mesas ocupadas: {mesasOcupadas}");
             }
             else
             {
@@ -102,18 +100,22 @@ namespace TrabalhoPratico
                 InserirFila();
                 Console.WriteLine("Todas as mesas estão ocupadas no momento. Requisição inserida na fila de espera!")
             } 
-
         }
 
-        public static void finalizarRequisicao()
+        public static void finalizarRequisicao(int idRequisicao)
         {
-            fecharRequisicao(idRequisicao);
+            mesasOcupadas--;
+            Console.WriteLine($"Requisição de nº {idRequisicao} finalizada! Mesas ocupadas: {mesasOcupadas}");
             atualizarFila();
         }
 
-        public static Requisicao atualizarFila()
+        public static void atualizarFila()
         {
-
+            if (filaEspera.Count > 0 && mesasOcupadas < MAX_MESAS)
+            {
+                Requisicao proximaRequisicao = filaEspera.Dequeue();
+                alocarRequisicao(proximaRequisicao);
+            }
         }
 
         public static void Main(string[] args)
