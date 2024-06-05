@@ -17,27 +17,27 @@ namespace Tetris.Model
             pedidos = new List<Produto>();
         }
 
-        public void adicionarItem(Produto novo)
+        public void AdicionarItem(Produto novo)
         {
             pedidos.Add(novo);
         }
 
-        public void gerarPedido()
+        public void GerarPedido()
         {
 
         }
 
-        public void calcularValorTotal()
+        public void CalcularValorTotal()
         {
 
         }
 
-        public void calcularDivisaoValor()
+        public void CalcularDivisaoValor()
         {
 
         }
 
-        public void fecharPedido()
+        public void FecharPedido()
         {
 
         }

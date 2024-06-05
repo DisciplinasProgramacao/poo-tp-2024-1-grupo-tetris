@@ -54,16 +54,15 @@ namespace Tetris.Model
         /// <param name="cliente">Cliente que solicitou a mesa.</param>
         /// <param name="qtdPessoas">Quantidade de pessoas para a mesa.</param>
         /// <returns>Objeto Requisicao criado.</returns>
-        public Requisicao criarRequisicao(Cliente cliente, int qtdPessoas)
+        public Requisicao CriarRequisicao(Cliente cliente, int qtdPessoas)
         {
-            int idRequisicao = new Random().Next();
-            return new Requisicao(idRequisicao, cliente, qtdPessoas);
+            return new Requisicao(cliente, qtdPessoas);
         }
 
         /// <summary>
         /// Verifica se há requisições na fila de espera e aloca uma mesa se disponível.
         /// </summary>
-        public void inserirFila()
+        public void InserirFila()
         {
             if (filaEspera.Count > 0)
             {
