@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TrabalhoPratico
+namespace Tetris.Model
 {
-    public class Pedido
+    public class Pedido : Entidade
     {
         private int idPedido;
         private List<Produto> pedidos;

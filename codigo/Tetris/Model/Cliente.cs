@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TrabalhoPratico
+namespace Tetris.Model
 {
-    public class Cliente
+    public class Cliente : Entidade
     {
         static int ultimoID = 0;
         private string nome;

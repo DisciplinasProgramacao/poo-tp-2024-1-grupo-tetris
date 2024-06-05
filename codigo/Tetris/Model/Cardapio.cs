@@ -4,41 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TrabalhoPratico
+namespace Tetris.Model
 {
-    public class Cardapio
+    public class Cardapio : Entidade
     {
         private List<Produto> itens;
 
-        /// <summary>
-        /// Construtor da classe Cardapio.
-        /// </summary>
         public Cardapio()
         {
             itens = new List<Produto>();
         }
 
         /// <summary>
-        /// Adiciona um novo produto ao card√°pio.
+        /// Adiciona um novo produto ao card·pio.
         /// </summary>
         /// <param name="produto">Produto a ser adicionado.</param>
         public void adicionarProduto(Produto produto)
         {
             itens.Add(produto);
-        }
-
-        /// <summary>
-        /// Mostra todos os produtos cadastrados no card√°pio.
-        /// </summary>
-        public string apresentarCardapio()
-        {
-            string cardapio;
-            foreach (var produto in itens)
-            {
-                cardapio += produto.ToString() + "\n";
-            }
-            return cardapio;
-
         }
 
 
@@ -47,18 +30,28 @@ namespace TrabalhoPratico
         /// </summary>
         /// <param name="idProduto">ID do produto a ser buscado.</param>
         /// <returns>Produto encontrado ou null se n√£o encontrado.</returns>
-        public Produto buscarProduto(int idProduto)
+        public Produto BuscarProduto(int idProduto)
         {
             foreach (var produto in itens)
             {
-                if (produto.IdProduto == idProduto)
+                if (produto.Id == idProduto)
                 {
                     return produto;
                 }
             }
-            return null; // Produto n√£o encontrado;
+            return null; // Produto n„o encontrado;
         }
 
+        public string apresentarCardapio()
+        {
+            StringBuilder cardapio = new StringBuilder();
+            cardapio.AppendLine("----- Card·pio -----");
+            foreach (Produto item in itens) 
+            {
+                cardapio.AppendLine(item.Id + " - " + item.ToString());
+            }
 
+            return cardapio.ToString();
+        }
     }
 }

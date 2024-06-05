@@ -1,11 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Tetris.Model;
 
-namespace TrabalhoPratico
+namespace Tetris
 {
     public class Program
     {
@@ -49,7 +44,7 @@ namespace TrabalhoPratico
             clientes.adicionar(novo);
 
             Console.Write("Qual é a quantidade de pessoas? ");
-            qtdPessoas = Console.ReadLine();
+            qtdPessoas = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine($"\nCliente cadastrado:\n {novo.ToString()}");
             pausa();
@@ -69,7 +64,7 @@ namespace TrabalhoPratico
 
         public static Requisicao criarRequisicao()
         {
-            Requisicao novaRequisicao;
+            Requisicao novaRequisicao = new Requisicao();
 
             if (novaRequisicao != null)
             {
@@ -77,13 +72,13 @@ namespace TrabalhoPratico
                 {
                     addRequisicao(novaRequisicao);
                     Console.WriteLine($"\n{novaRequisicao} adicionada com sucesso.");
-                    pausa();                    
+                    pausa();
                 } while (novaRequisicao != null);
-                
+
             }
             else
                 novaRequisicao = null;
-            
+
             return novaRequisicao;
         }
 

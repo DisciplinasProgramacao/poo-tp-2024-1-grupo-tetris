@@ -7,9 +7,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TrabalhoPratico
+namespace Tetris.Model
 {
-    public class Restaurante
+    public class Restaurante : Entidade
     {
         private List<Cliente> clientes;            // Lista de clientes do restaurante
         private Queue<Requisicao> filaEspera;      // Fila de espera para as requisições de mesa
@@ -68,7 +68,7 @@ namespace TrabalhoPratico
             if (filaEspera.Count > 0)
             {
                 Requisicao proxRequisicao = filaEspera.Peek();
-                Mesa mesaDisponivel = procurarMesaDisponivel(proxRequisicao.QtdPessoas);
+                Mesa mesaDisponivel = procurarMesaDisponivel(proxRequisicao.qtdPessoas);
                 if (mesaDisponivel != null)
                 {
                     filaEspera.Dequeue(); // Remove da fila de espera
@@ -90,7 +90,7 @@ namespace TrabalhoPratico
         {
             foreach (var mesa in mesas.Values)
             {
-                if (!mesa.Ocupada && mesa.Capacidade >= qtdPessoas)
+                if (!mesa.VerificarDisponibilidade(qtdPessoas))
                 {
                     return mesa;
                 }
@@ -106,9 +106,9 @@ namespace TrabalhoPratico
         {
             if (mesas.Count < MAX_MESAS)
             {
-                mesas.Add(mesa.Id, mesa);
-                mesa.Ocupada = true;
-                Console.WriteLine($"Mesa {mesa.Id} alocada para o cliente.");
+                mesas.Add(mesa.id, mesa);
+                mesa.ocuparMesa();
+                Console.WriteLine($"Mesa {mesa.id} alocada para o cliente.");
             }
             else
             {
@@ -127,9 +127,9 @@ namespace TrabalhoPratico
             {
                 foreach (var mesa in mesas.Values)
                 {
-                    if (mesa.Ocupada)
+                    if (mesa.isOcupada)
                     {
-                        mesa.Ocupada = false; // Libera a mesa
+                        mesa.liberarMesa(); // Libera a mesa
                         Console.WriteLine($"Requisição com ID {idRequisicao} fechada com sucesso.");
                         return 1; // Requisição fechada com sucesso
                     }
@@ -150,13 +150,13 @@ namespace TrabalhoPratico
         /// <param name="mesa">Mesa a ser adicionada.</param>
         public void adicionarMesa(Mesa mesa)
         {
-            if (!mesas.ContainsKey(mesa.Id))
+            if (!mesas.ContainsKey(mesa.id))
             {
-                mesas.Add(mesa.Id, mesa);
+                mesas.Add(mesa.id, mesa);
             }
             else
             {
-                Console.WriteLine($"Mesa com ID {mesa.Id} já existe no restaurante.");
+                Console.WriteLine($"Mesa com ID {mesa.id} já existe no restaurante.");
             }
         }
         public void buscaRequisicao()
