@@ -90,7 +90,7 @@ namespace Tetris.Model
         {
             foreach (var mesa in mesas.Values)
             {
-                if (!mesa.verificarDisponibilidade(qtdPessoas))
+                if (!mesa.VerificarDisponibilidade(qtdPessoas))
                 {
                     return mesa;
                 }

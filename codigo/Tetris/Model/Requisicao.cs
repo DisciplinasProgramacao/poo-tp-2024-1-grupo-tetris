@@ -28,24 +28,24 @@ namespace Tetris.Model
         /// Gerencia as entras, se entrar cliente ele soma na variavel de mesas 
         /// </summary>
         /// <returns>True para mesa disponivel</returns>
-        public bool gerenciarEntrada(int maxMesas)
+        public void GerenciarEntrada(int qtdPessoas, Mesa mesa)
         {
-            if (mesasOcupadas < maxMesas)
+            if (mesa.VerificarDisponibilidade(qtdPessoas))
             {
-                mesasOcupadas++;
-                entradaCliente = DateTime.Now; 
-                return true; 
+                entradaCliente = DateTime.Now; // Registra a data e hora de entrada
+                mesa.ocuparMesa();
             }
             else
             {
-                return false; 
+                // Temos que chamar a Fila de Espera, Classe Restaurante. 
+                restaurante.inserirFila();
             }
         }
 
         /// <summary>
         /// Método para gerenciar Saida do restaurante. 
         /// </summary>
-        public void gerenciarSaida()
+        public bool gerenciarSaida()
         {
             if (mesasOcupadas > 0)
             {

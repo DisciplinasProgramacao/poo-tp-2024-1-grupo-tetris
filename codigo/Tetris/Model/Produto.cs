@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,19 +9,16 @@ namespace Tetris.Model
 {
     public class Produto : Entidade
     {
-        private int idProduto;
         private string descricao;
         private double valor;
-        private int quant;
+        private int quantidade;
 
-        public int IdProduto
+        // Construtor da classe Produto
+        public Produto(string descricao, double valor, int quantidadeDisponivel)
         {
-            get { return idProduto; }
-        }
-
-        public Produto()
-        {
-
+            this.descricao = descricao;
+            this.valor = valor;
+            this.quantidade = quantidadeDisponivel;
         }
     }
 }

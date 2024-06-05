@@ -69,7 +69,7 @@ namespace Tetris.Model
         /// </summary>
         /// <param name="qtdPessoas"> Capacidade de pessoas referente ao tamanho da mesa </param>
         /// <returns> Retorna true caso exista alguma mesa disponível e false caso não tenha </returns>
-        public bool verificarDisponibilidade(int qtdPessoas)
+        public bool VerificarDisponibilidade(int qtdPessoas)
         {
             if (!isOcupada && qtdPessoas <= capacidade)
             {
