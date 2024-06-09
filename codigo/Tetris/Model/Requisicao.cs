@@ -8,7 +8,6 @@ namespace Tetris.Model
 {
     public class Requisicao : Entidade
     {
-        private int idRequisicao;
         private int QtdPessoas;
         private int mesasOcupadas;
         private DateTime entradaCliente;

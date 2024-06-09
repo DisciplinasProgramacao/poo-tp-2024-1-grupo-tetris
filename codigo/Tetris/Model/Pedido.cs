@@ -8,7 +8,6 @@ namespace Tetris.Model
 {
     public class Pedido : Entidade
     {
-        private int idPedido;
         private List<Produto> pedidos;
         private const double TX_SERVICO = 0.10;
 
@@ -16,6 +15,8 @@ namespace Tetris.Model
         {
             pedidos = new List<Produto>();
         }
+
+        public List<Produto> GetPedido() => pedidos;
 
         public void AdicionarItem(Produto novo)
         {
