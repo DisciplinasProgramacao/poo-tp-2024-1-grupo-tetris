@@ -11,15 +11,22 @@ namespace Tetris.Model
     {
         private string descricao;
         public double valor { get; private set; }
-        private int quantidade;
 
-        // Construtor da classe Produto
-        public Produto(string descricao, double valor, int quantidadeDisponivel)
+
+        // Construtor da classe Produto, valor não pode ser menor que  0.
+        public Produto(string descricao, double valor)
         {
+            if (valor < 0)
+            {
+                throw new ArgumentException(nameof(valor), "O valor não pode ser menor que zero");
+            }
+
             this.descricao = descricao;
             this.valor = valor;
-            this.quantidade = quantidadeDisponivel;
+        
         }
+
+        // Sobrescrevendo o ToString. 
         public override string ToString()
         {
             return $"ID: {Id} | Descrição: {descricao} | Valor: {valor:C2} | Quantidade Disponível: {quantidade}";
