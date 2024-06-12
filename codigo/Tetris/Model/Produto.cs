@@ -10,7 +10,7 @@ namespace Tetris.Model
     public class Produto : Entidade
     {
         private string descricao;
-        private double valor;
+        public double valor { get; private set; }
         private int quantidade;
 
         // Construtor da classe Produto

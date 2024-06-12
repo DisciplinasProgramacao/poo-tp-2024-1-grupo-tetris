@@ -8,39 +8,46 @@ namespace Tetris.Model
 {
     public class Pedido : Entidade
     {
-        private List<Produto> pedidos;
+        private List<Produto> Itens;
+        private bool StatusPedidoAberto = false;
         private const double TX_SERVICO = 0.10;
 
         public Pedido()
         {
-            pedidos = new List<Produto>();
+            Itens = new List<Produto>();
         }
 
-        public List<Produto> GetPedido() => pedidos;
+        public List<Produto> GetPedido() => Itens;
 
         public void AdicionarItem(Produto novo)
         {
-            pedidos.Add(novo);
+            Itens.Add(novo);
         }
 
-        public void GerarPedido()
+        public void GerarPedido(Produto produto)
         {
-
+            StatusPedidoAberto = true;
         }
 
-        public void CalcularValorTotal()
+        public double CalcularValorTotal()
         {
+            double valorTotal = 0;
+            foreach(var item in this.Itens)
+            {
+                valorTotal += item.valor;
+            }
 
+            return valorTotal;
         }
 
-        public void CalcularDivisaoValor()
+        public double CalcularDivisaoValor(int quantidadeDivisões)
         {
-
+            return CalcularValorTotal() / quantidadeDivisões;
         }
 
         public void FecharPedido()
         {
-
+            StatusPedidoAberto = false;
         }
     }
 }
