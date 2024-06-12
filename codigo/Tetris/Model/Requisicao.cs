@@ -8,54 +8,59 @@ namespace Tetris.Model
 {
     public class Requisicao : Entidade
     {
-        private int QtdPessoas;
-        private int mesasOcupadas;
+        private Cliente cliente;
+        private Pedido pedido;
+        private int qtdPessoas;
+        Mesa mesa;
         private DateTime entradaCliente;
         private DateTime saidaCliente;
 
-        public int qtdPessoas 
-        { 
+        public int QtdPessoas
+        {
             get { return QtdPessoas; }
         }
 
-        public Requisicao()
+
+        //Construtor
+        public Requisicao(Cliente cliente, int quantidadePessoas)
         {
-            
+            this.cliente = cliente;
+            qtdPessoas = quantidadePessoas;
+            entradaCliente = DateTime.Now;
+            pedido = new Pedido();
+
         }
 
-        /// <summary>
-        /// Gerencia as entras, se entrar cliente ele soma na variavel de mesas 
-        /// </summary>
-        /// <returns>True para mesa disponivel</returns>
-        public void GerenciarEntrada(int qtdPessoas, Mesa mesa)
+        //Atualização da classe Requisição para fechar a conta e exibir valor pro cliente
+        public double fecharConta()
         {
-            if (mesa.VerificarDisponibilidade(qtdPessoas))
-            {
-                entradaCliente = DateTime.Now; // Registra a data e hora de entrada
-                mesa.ocuparMesa();
-            }
-            else
-            {
-                // Temos que chamar a Fila de Espera, Classe Restaurante. 
-                restaurante.inserirFila();
-            }
+            return pedido.CalcularValorTotal();
         }
 
-        /// <summary>
-        /// Método para gerenciar Saida do restaurante. 
-        /// </summary>
-        public bool gerenciarSaida()
+        //Adição de um produto ao pedido
+        public Produto ReceberProduto(Produto produto)
         {
-            if (mesasOcupadas > 0)
-            {
-                mesasOcupadas--; // Decrementa o número de mesas ocupadas
-                return true; // Cliente saiu com sucesso
-            }
-            else
-            {
-                return false; // Não há clientes para sair
-            }
+            pedido.AdicionarItem(produto);
+
+            return produto;
         }
+
+        //Método para receber uma mesa após a lista de espera no Restaurante rodar
+        public Mesa AlocarMesa(Mesa tmpMesa)
+        {
+            mesa = tmpMesa;
+            return mesa;
+        }
+
+        public DateTime EncerrarRequisicao()
+        {
+            saidaCliente = DateTime.Now;
+            return saidaCliente;
+        }
+
+
+
+
     }
 
 
