@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -20,6 +20,11 @@ namespace Tetris.Model
             this.valor = valor;
             this.quantidade = quantidadeDisponivel;
         }
+        public override string ToString()
+        {
+            return $"ID: {Id} | Descrição: {descricao} | Valor: {valor:C2} | Quantidade Disponível: {quantidade}";
+        }
+
     }
 }
 
