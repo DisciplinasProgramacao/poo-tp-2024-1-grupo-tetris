@@ -81,38 +81,7 @@ namespace Tetris
 
             return novaRequisicao;
         }
-
-        public static void alocarRequisicao(Requisicao requisicao)
-        {          
-            if (mesasOcupadas < MAX_MESAS)
-            {
-                mesasOcupadas++;
-                Console.WriteLine($"Requisição de nº {idRequisicao} alocada! Mesas ocupadas: {mesasOcupadas}");
-            }
-            else
-            {
-                filaEspera.Enqueue(requisicao);
-                InserirFila();
-                Console.WriteLine("Todas as mesas estão ocupadas no momento. Requisição inserida na fila de espera!")
-            } 
-        }
-
-        public static void finalizarRequisicao(int idRequisicao)
-        {
-            mesasOcupadas--;
-            Console.WriteLine($"Requisição de nº {idRequisicao} finalizada! Mesas ocupadas: {mesasOcupadas}");
-            atualizarFila();
-        }
-
-        public static void atualizarFila()
-        {
-            if (filaEspera.Count > 0 && mesasOcupadas < MAX_MESAS)
-            {
-                Requisicao proximaRequisicao = filaEspera.Dequeue();
-                alocarRequisicao(proximaRequisicao);
-            }
-        }
-
+        
         public static void Main(string[] args)
         {
             Cliente = new Cliente();
