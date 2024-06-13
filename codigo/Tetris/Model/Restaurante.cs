@@ -73,10 +73,6 @@ namespace Tetris.Model
                     filaEspera.Dequeue(); // Remove da fila de espera
                     alocarMesa(mesaDisponivel);
                 }
-                else
-                {
-                    Console.WriteLine("Não há mesas disponíveis no momento.");
-                }
             }
         }
 
@@ -107,11 +103,6 @@ namespace Tetris.Model
             {
                 mesas.Add(mesa.id, mesa);
                 mesa.ocuparMesa();
-                Console.WriteLine($"Mesa {mesa.id} alocada para o cliente.");
-            }
-            else
-            {
-                Console.WriteLine("Todas as mesas estão ocupadas no momento.");
             }
         }
 
@@ -120,26 +111,15 @@ namespace Tetris.Model
         /// </summary>
         /// <param name="idRequisicao">ID da requisição a ser fechada.</param>
         /// <returns>1 se a requisição foi fechada com sucesso, -1 se não.</returns>
-        public int fecharRequisicao(int idRequisicao)
+        public void FecharRequisicao(int idRequisicao)
         {
-            if (mesas.Count > 0)
+            foreach (var mesa in mesas.Values)
             {
-                foreach (var mesa in mesas.Values)
+                if (mesa.IsOcupada)
                 {
-                    if (mesa.isOcupada)
-                    {
-                        mesa.liberarMesa(); // Libera a mesa
-                        Console.WriteLine($"Requisição com ID {idRequisicao} fechada com sucesso.");
-                        return 1; // Requisição fechada com sucesso
-                    }
+                    mesa.LiberarMesa(); // Libera a mesa
+                    break;
                 }
-                Console.WriteLine($"Não há mesas alocadas para fechar a requisição com ID {idRequisicao}.");
-                return -1; // Não há mesas alocadas para a requisição
-            }
-            else
-            {
-                Console.WriteLine($"Não há mesas alocadas para fechar a requisição com ID {idRequisicao}.");
-                return -1; // Não há mesas alocadas para a requisição
             }
         }
 
@@ -153,25 +133,16 @@ namespace Tetris.Model
             {
                 mesas.Add(mesa.id, mesa);
             }
-            else
-            {
-                Console.WriteLine($"Mesa com ID {mesa.id} já existe no restaurante.");
-            }
         }
-        public void buscaRequisicao()
+        public Requisicao buscaRequisicao(int idRequisicao)
         {
             Requisicao requisicao = requisicaoOn.Find(r => r.idRequisicao == idRequisicao);
-            if (requisicao == null)
-            {
-                Console.WriteLine("Requisição não encontrada.");
-            }
             return requisicao;
         }
 
         public void exibirCardapio()
         {
-            Console.WriteLine("----- Cardápio -----");
-            System.Console.WriteLine(cardapio.apresentarCardapio());
+            cardapio.apresentarCardapio();
         }
 
         public void incluirProdutoRequisicao(int idProduto, int idRequisicao)
