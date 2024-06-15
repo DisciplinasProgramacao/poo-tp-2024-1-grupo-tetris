@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -9,19 +10,19 @@ namespace Tetris.Model
 {
     public class Produto : Entidade
     {
-        private string descricao;
+        private string nome;
         public double valor { get; private set; }
 
 
         // Construtor da classe Produto, valor não pode ser menor que  0.
-        public Produto(string descricao, double valor)
+        public Produto(string nome, double valor)
         {
             if (valor < 0)
             {
                 throw new ArgumentException(nameof(valor), "O valor não pode ser menor que zero");
             }
 
-            this.descricao = descricao;
+            this.nome = nome;
             this.valor = valor;
         
         }
@@ -29,10 +30,8 @@ namespace Tetris.Model
         // Sobrescrevendo o ToString. 
         public override string ToString()
         {
-            return $"ID: {Id} | Descrição: {descricao} | Valor: {valor:C2} | Quantidade Disponível: {quantidade}";
+            return $"ID: {Id} | Descrição: {nome} | Valor: {valor:C2}";
         }
 
     }
 }
-
-
