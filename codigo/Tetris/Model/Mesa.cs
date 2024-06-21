@@ -17,7 +17,7 @@ namespace Tetris.Model
         private static int proxId = 1;
         private int Id;
         private int capacidade;
-        private bool IsOcupada;
+        public bool IsOcupada {  get; private set; }
 
         public bool isOcupada 
         {  

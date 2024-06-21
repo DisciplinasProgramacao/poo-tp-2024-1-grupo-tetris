@@ -11,7 +11,7 @@ namespace Tetris.Model
 {
     public class Restaurante : Entidade
     {
-        private List<Cliente> clientes;            // Lista de clientes do restaurante
+        public List<Cliente> clientes { get; private set; }            // Lista de clientes do restaurante
         private Queue<Requisicao> filaEspera;      // Fila de espera para as requisições de mesa
         private Dictionary<int, Mesa> mesas;       // Dicionário de mesas, onde a chave é o ID da mesa
         private const int MAX_MESAS = 10;          // Número máximo de mesas no restaurante
@@ -36,6 +36,14 @@ namespace Tetris.Model
             clientes.Add(cliente);
         }
 
+        public Cliente LocalizarCliente(int id)
+        {
+            foreach(var cliente in clientes)
+                if(cliente.LocalizarCliente(id))
+                    return cliente;
+            return null;
+        }
+
         /// <summary>
         /// Adiciona uma requisição de mesa à fila de espera.
         /// </summary>
@@ -47,6 +55,7 @@ namespace Tetris.Model
             filaEspera.Enqueue(requisicao);
             InserirFila();
         }
+
 
         /// <summary>
         /// Cria uma nova requisição de mesa com um ID aleatório.

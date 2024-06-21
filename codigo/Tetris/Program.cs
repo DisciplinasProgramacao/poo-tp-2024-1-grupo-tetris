@@ -32,7 +32,7 @@ namespace Tetris
             return opcao;
         }
 
-        private static Cliente cadastrarCliente()
+        private static Cliente cadastrarCliente(Restaurante restaurante)
         {
             string nome;
             int qtdPessoas;
@@ -40,56 +40,51 @@ namespace Tetris
             cabecalho();
             Console.Write("Qual é o nome do novo cliente? ");
             nome = Console.ReadLine();
-            novo = new Cliente(nome);
-            clientes.adicionar(novo);
+            var novoCliente = new Cliente(nome);
+            restaurante.adicionarCliente(novoCliente);
 
             Console.Write("Qual é a quantidade de pessoas? ");
             qtdPessoas = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine($"\nCliente cadastrado:\n {novo.ToString()}");
+            Console.WriteLine($"\nCliente cadastrado:\n {novoCliente.ToString()}");
             pausa();
-            return novo;
+            return novoCliente;
         }
 
-        private static Cliente localizarCliente()
+        private static Cliente localizarCliente(Restaurante restaurante)
         {
             int idCli;
             Cliente quem;
+
             cabecalho();
             Console.Write("Digite o id do cliente: ");
             idCli = int.Parse(Console.ReadLine());
-            quem = clientes.localizar(idCli);
+            quem = restaurante.LocalizarCliente(idCli);
             return quem;
         }
 
-        public static Requisicao criarRequisicao()
+        public static Requisicao criarRequisicao(Restaurante restaurante, Cliente? cliente)
         {
-            Requisicao novaRequisicao = new Requisicao();
+            Requisicao req;
+            try {
+                Console.WriteLine("Digite a quantidade de pessoas");
+                var qnt = Convert.ToInt32(Console.ReadLine());
+                req = new Requisicao(cliente, qnt);
+                Console.WriteLine($"\n{novaRequisicao} adicionada com sucesso.");
 
-            if (novaRequisicao != null)
-            {
-                do
-                {
-                    addRequisicao(novaRequisicao);
-                    Console.WriteLine($"\n{novaRequisicao} adicionada com sucesso.");
-                    pausa();
-                } while (novaRequisicao != null);
-
+                return novaRequisicao;
             }
-            else
-                novaRequisicao = null;
-
-            return novaRequisicao;
+            catch (ArgumentNullException argEx)           {
+                Console.WriteLine("Não pode abrir uma requisiçãõ sem ter cadastrado um cliente");
+            }
+            return 
         }
         
         public static void Main(string[] args)
         {
-            Cliente = new Cliente();
-            Requisicao = new Requisicao();
+            Cliente ultimoClienteRegistrado = null;
             int opcao;
-
-            Cliente clienteAtual;
-            Requisicao novaRequisicao;
+            Restaurante restaurante = new Restaurante();
 
             do
             {
@@ -97,15 +92,12 @@ namespace Tetris
                 switch (opcao)
                 {
                     case 1:
-                        clienteAtual = localizarCliente();
-                        if (clienteAtual == null)
-                        {
-                            clienteAtual = cadastrarCliente();
-                        }
+                        ultimoClienteRegistrado = cadastrarCliente(restaurante);
+
                         pausa();
                         break;
                     case 2:
-                        clienteAtual = localizarCliente();
+                        var clienteAtual = localizarCliente(restaurante);
                         if (clienteAtual != null)
                         {
                             Console.WriteLine($"\n{clienteAtual}");
@@ -117,8 +109,7 @@ namespace Tetris
                         pausa();
                         break;
                     case 3:
-                        if (novaRequisicao != null)
-                            novaRequisicao = criarRequisicao();
+                            criarRequisicao(restaurante, ultimoClienteRegistrado);
                         pausa();
                         break;
                     case 4:

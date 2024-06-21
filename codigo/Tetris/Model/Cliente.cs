@@ -15,6 +15,8 @@ namespace Tetris.Model
             this.nome = nome;
         }
 
+        public bool LocalizarCliente(int id) => Id == id;
+
         public override string ToString()
         {
             return "Cliente nº " + Id + ": " + nome;

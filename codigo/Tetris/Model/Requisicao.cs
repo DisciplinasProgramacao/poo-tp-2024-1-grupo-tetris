@@ -10,7 +10,7 @@ namespace Tetris.Model
     {
         private Cliente cliente;
         private Pedido pedido;
-        private int qtdPessoas;
+        public int qtdPessoas { get; private set; }
         Mesa mesa;
         private DateTime entradaCliente;
         private DateTime saidaCliente;
