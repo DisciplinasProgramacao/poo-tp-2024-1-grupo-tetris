@@ -9,13 +9,22 @@ namespace Tetris.Model
     public class Cliente : Entidade
     {
         private string nome;
+        
 
         public Cliente(string nome)
         {
             this.nome = nome;
         }
 
-        public bool LocalizarCliente(int id) => Id == id;
+        public string GetNome()
+        {
+            return nome;
+        }
+
+        public int GetId()
+        {
+            return Id;
+        }
 
         public override string ToString()
         {

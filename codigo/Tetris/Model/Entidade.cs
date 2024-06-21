@@ -10,7 +10,7 @@ namespace Tetris.Model
     {
         private static Dictionary<Type, int> _proximosIds = new Dictionary<Type, int>();
 
-        public int Id { get; private set; }
+        protected int Id;
 
         protected Entidade()
         {

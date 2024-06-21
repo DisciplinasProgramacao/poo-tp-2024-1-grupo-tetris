@@ -8,19 +8,24 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\samuel mesquita\\.nuget\\packages\\": {}
+    "C:\\Users\\chris\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\samuel mesquita\\Desktop\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Tetris.csproj",
+      "projectUniqueName": "C:\\Users\\chris\\Source\\Repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Tetris.csproj",
       "projectName": "Tetris",
-      "projectPath": "C:\\Users\\samuel mesquita\\Desktop\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Tetris.csproj",
-      "packagesPath": "C:\\Users\\samuel mesquita\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\samuel mesquita\\Desktop\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\obj\\",
+      "projectPath": "C:\\Users\\chris\\Source\\Repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Tetris.csproj",
+      "packagesPath": "C:\\Users\\chris\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\chris\\Source\\Repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\samuel mesquita\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\chris\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -40,6 +45,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -61,7 +71,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

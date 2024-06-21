@@ -9,8 +9,8 @@ namespace Tetris.Model
     public class Requisicao : Entidade
     {
         private Cliente cliente;
-        public Pedido pedido { get; private set; }
-        public int qtdPessoas { get; private set; }
+        private Pedido pedido;
+        private int qtdPessoas;
         Mesa mesa;
         private DateTime entradaCliente;
         private DateTime saidaCliente;
@@ -20,6 +20,7 @@ namespace Tetris.Model
             get { return QtdPessoas; }
         }
 
+        
 
         //Construtor
         public Requisicao(Cliente cliente, int quantidadePessoas)
@@ -31,17 +32,49 @@ namespace Tetris.Model
 
         }
 
-        //Atualização da classe Requisição para fechar a conta e exibir valor pro cliente
+        //Getters
+
+        
+        public int GetQtdPessoas()
+        {
+            return qtdPessoas;
+        }
+
+        public int GetID()
+        {
+            return Id;
+        }
+
+        public Pedido GetPedido() 
+        {
+            return pedido;
+        }
+
+        public Mesa GetMesa()
+        {
+            return mesa;
+        }
+        //Consultas
+        public bool BuscarCliente(string nome)
+        {
+            if (nome == cliente.GetNome())
+                return true;
+            else
+                return false;
+        }
+
+        //Fechar conta
         public double fecharConta()
         {
+            this.ToString();
             return pedido.CalcularValorTotal();
         }
 
+        
         //Adição de um produto ao pedido
         public Produto ReceberProduto(Produto produto)
         {
             pedido.AdicionarItem(produto);
-
             return produto;
         }
 
@@ -58,7 +91,10 @@ namespace Tetris.Model
             return saidaCliente;
         }
 
-
+        public override string ToString()
+        {
+            return "Nome: " + cliente.GetNome() + " ID: " + cliente.GetId() + " total do pedido: " + pedido.CalcularValorTotal();
+        }
 
 
     }

@@ -24,6 +24,7 @@ namespace Tetris.Model
 
             this.nome = nome;
             this.valor = valor;
+            
         
         }
 

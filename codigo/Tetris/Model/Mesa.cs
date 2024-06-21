@@ -24,7 +24,7 @@ namespace Tetris.Model
         public Mesa(int capacidade)
         {
             this.capacidade = capacidade;
-            this.IsOcupada = false;
+            IsOcupada = false;
         }
 
         /// <summary>
@@ -33,20 +33,17 @@ namespace Tetris.Model
         /// <returns> Retorna false caso a mesa esteja disponível.</returns>
         public bool LiberarMesa()
         {
-            IsOcupada = true;
-            if (!IsOcupada)
-            {
-                return false;
-            }
-            return true;
+            IsOcupada = false;
+            return IsOcupada;
         }
         /// <summary>
         /// Método que ocuparMesa é responsável por verificar se determinada mesa está ocupada.
         /// </summary>
         /// <returns>Retorna true caso a mesa esteja ocupada.</returns>
-        public void OcuparMesa()
+        public bool OcuparMesa()
         {
             IsOcupada = true;
+            return IsOcupada;
         }
         /// <summary>
         /// Método verificarDisponibilidade é responsável por verificar se existem mesas disponíveis compatíveis
@@ -56,12 +53,10 @@ namespace Tetris.Model
         /// <returns> Retorna true caso exista alguma mesa disponível e false caso não tenha </returns>
         public bool VerificarDisponibilidade(int qtdPessoas)
         {
-            if (!IsOcupada && qtdPessoas <= capacidade)
-            {
+            if (IsOcupada == false && qtdPessoas <= capacidade)
                 return true;
-            }
-
-            return false;
+            else
+                return false;
         }
     }
 }

@@ -3,3 +3,18 @@ C:\Users\samuel mesquita\Desktop\poo-tp-2024-1-grupo-tetris\codigo\Tetris\obj\De
 C:\Users\samuel mesquita\Desktop\poo-tp-2024-1-grupo-tetris\codigo\Tetris\obj\Debug\net8.0\Tetris.AssemblyInfo.cs
 C:\Users\samuel mesquita\Desktop\poo-tp-2024-1-grupo-tetris\codigo\Tetris\obj\Debug\net8.0\Tetris.csproj.CoreCompileInputs.cache
 C:\Users\samuel mesquita\Desktop\poo-tp-2024-1-grupo-tetris\codigo\Tetris\obj\Debug\net8.0\Tetris.sourcelink.json
+C:\Users\chris\Source\Repos\poo-tp-2024-1-grupo-tetris\codigo\Tetris\bin\Debug\net8.0\Tetris.exe
+C:\Users\chris\Source\Repos\poo-tp-2024-1-grupo-tetris\codigo\Tetris\bin\Debug\net8.0\Tetris.deps.json
+C:\Users\chris\Source\Repos\poo-tp-2024-1-grupo-tetris\codigo\Tetris\bin\Debug\net8.0\Tetris.runtimeconfig.json
+C:\Users\chris\Source\Repos\poo-tp-2024-1-grupo-tetris\codigo\Tetris\bin\Debug\net8.0\Tetris.dll
+C:\Users\chris\Source\Repos\poo-tp-2024-1-grupo-tetris\codigo\Tetris\bin\Debug\net8.0\Tetris.pdb
+C:\Users\chris\Source\Repos\poo-tp-2024-1-grupo-tetris\codigo\Tetris\obj\Debug\net8.0\Tetris.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\chris\Source\Repos\poo-tp-2024-1-grupo-tetris\codigo\Tetris\obj\Debug\net8.0\Tetris.AssemblyInfoInputs.cache
+C:\Users\chris\Source\Repos\poo-tp-2024-1-grupo-tetris\codigo\Tetris\obj\Debug\net8.0\Tetris.AssemblyInfo.cs
+C:\Users\chris\Source\Repos\poo-tp-2024-1-grupo-tetris\codigo\Tetris\obj\Debug\net8.0\Tetris.csproj.CoreCompileInputs.cache
+C:\Users\chris\Source\Repos\poo-tp-2024-1-grupo-tetris\codigo\Tetris\obj\Debug\net8.0\Tetris.sourcelink.json
+C:\Users\chris\Source\Repos\poo-tp-2024-1-grupo-tetris\codigo\Tetris\obj\Debug\net8.0\Tetris.dll
+C:\Users\chris\Source\Repos\poo-tp-2024-1-grupo-tetris\codigo\Tetris\obj\Debug\net8.0\refint\Tetris.dll
+C:\Users\chris\Source\Repos\poo-tp-2024-1-grupo-tetris\codigo\Tetris\obj\Debug\net8.0\Tetris.pdb
+C:\Users\chris\Source\Repos\poo-tp-2024-1-grupo-tetris\codigo\Tetris\obj\Debug\net8.0\Tetris.genruntimeconfig.cache
+C:\Users\chris\Source\Repos\poo-tp-2024-1-grupo-tetris\codigo\Tetris\obj\Debug\net8.0\ref\Tetris.dll

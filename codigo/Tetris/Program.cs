@@ -41,8 +41,6 @@ namespace Tetris
             Console.Write("Qual é o nome do novo cliente? ");
             nome = Console.ReadLine();
             var novoCliente = new Cliente(nome);
-            restaurante.adicionarCliente(novoCliente);
-
             Console.Write("Qual é a quantidade de pessoas? ");
             qtdPessoas = Convert.ToInt32(Console.ReadLine());
 
@@ -51,16 +49,9 @@ namespace Tetris
             return novoCliente;
         }
 
-        private static Cliente localizarCliente(Restaurante restaurante)
+        private static void localizarCliente()
         {
-            int idCli;
-            Cliente quem;
-
-            cabecalho();
-            Console.Write("Digite o id do cliente: ");
-            idCli = int.Parse(Console.ReadLine());
-            quem = restaurante.LocalizarCliente(idCli);
-            return quem;
+            
         }
 
         public static Requisicao criarRequisicao(Restaurante restaurante, Cliente? cliente)

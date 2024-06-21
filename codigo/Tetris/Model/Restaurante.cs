@@ -9,13 +9,15 @@ using System.Threading.Tasks;
 
 namespace Tetris.Model
 {
-    public class Restaurante : Entidade
+    public class Restaurante : Estabelecimento
     {
-        public List<Cliente> clientes { get; private set; }            // Lista de clientes do restaurante
-        private Queue<Requisicao> filaEspera;      // Fila de espera para as requisições de mesa
-        private Dictionary<int, Mesa> mesas;       // Dicionário de mesas, onde a chave é o ID da mesa
-        private const int MAX_MESAS = 10;          // Número máximo de mesas no restaurante
-        private Cardapio cardapio { get; set; }
+        private const int MAX_MESAS = 10;
+        private List<Requisicao> listaEspera; 
+        private List<Requisicao> requisicoesAtuais;
+        private List<Mesa> mesas;  
+         
+        
+        
 
         /// <summary>
         /// Construtor da classe Restaurante.
@@ -23,66 +25,52 @@ namespace Tetris.Model
         /// </summary>
         public Restaurante()
         {
-            clientes = new List<Cliente>();
-            filaEspera = new Queue<Requisicao>();
-            mesas = new Dictionary<int, Mesa>();
+            listaEspera = new List<Requisicao>();
+            mesas = new List<Mesa>();
+            requisicoesAtuais = new List<Requisicao>();
+
+            for(int i = 1; i < MAX_MESAS+1; i++) 
+            {
+                if (i <=4)
+                    mesas.Add(new Mesa(4));
+                else if (i >= 5 && i <=8)
+                    mesas.Add(new Mesa(6));
+                else 
+                    mesas.Add(new Mesa(8));
+            }
         }
 
-        /// <summary>
-        /// Adiciona um cliente à lista de clientes do restaurante.
-        /// </summary>
-        /// <param name="cliente">Cliente a ser adicionado.</param>
-        public void adicionarCliente(Cliente cliente)
-        {
-            clientes.Add(cliente);
-        }
-
-        public Cliente LocalizarCliente(int id)
-        {
-            foreach(var cliente in clientes)
-                if(cliente.LocalizarCliente(id))
-                    return cliente;
-            return null;
-        }
-
+        
         /// <summary>
         /// Adiciona uma requisição de mesa à fila de espera.
         /// </summary>
         /// <param name="cliente">Cliente que solicitou a mesa.</param>
         /// <param name="qtdPessoas">Quantidade de pessoas para a mesa.</param>
-        public void solicitarMesa(Cliente cliente, int qtdPessoas)
+        public Requisicao solicitarMesa(Cliente cliente, int qtdPessoas)
         {
-            Requisicao requisicao = CriarRequisicao(cliente, qtdPessoas);
-            filaEspera.Enqueue(requisicao);
-            InserirFila();
+            Requisicao requisicao = new Requisicao(cliente, qtdPessoas);
+            listaEspera.Add(requisicao);
+            RodarFila();
+            return requisicao;
         }
 
 
-        /// <summary>
-        /// Cria uma nova requisição de mesa com um ID aleatório.
-        /// </summary>
-        /// <param name="cliente">Cliente que solicitou a mesa.</param>
-        /// <param name="qtdPessoas">Quantidade de pessoas para a mesa.</param>
-        /// <returns>Objeto Requisicao criado.</returns>
-        public Requisicao CriarRequisicao(Cliente cliente, int qtdPessoas)
-        {
-            return new Requisicao(cliente, qtdPessoas);
-        }
 
         /// <summary>
         /// Verifica se há requisições na fila de espera e aloca uma mesa se disponível.
         /// </summary>
-        public void InserirFila()
+        private void RodarFila()
         {
-            if (filaEspera.Count > 0)
+            foreach(var tmpRequisicao in listaEspera)
             {
-                Requisicao proxRequisicao = filaEspera.Peek();
-                Mesa mesaDisponivel = procurarMesaDisponivel(proxRequisicao.qtdPessoas);
-                if (mesaDisponivel != null)
+                Mesa tmp = procurarMesaDisponivel(tmpRequisicao.GetQtdPessoas());
+                if(tmp != null)
                 {
-                    filaEspera.Dequeue(); // Remove da fila de espera
-                    alocarMesa(mesaDisponivel);
+                    requisicoesAtuais.Add(tmpRequisicao);
+                    tmpRequisicao.AlocarMesa(tmp);
+                    listaEspera.Remove(tmpRequisicao);
                 }
+
             }
         }
 
@@ -93,61 +81,96 @@ namespace Tetris.Model
         /// <returns>Mesa disponível encontrada ou null se não houver.</returns>
         private Mesa procurarMesaDisponivel(int qtdPessoas)
         {
-            foreach (var mesa in mesas.Values)
+            foreach (var mesa in mesas)
             {
-                if (!mesa.VerificarDisponibilidade(qtdPessoas))
+                if (mesa.VerificarDisponibilidade(qtdPessoas) == true)
                 {
+                    mesa.OcuparMesa();
                     return mesa;
                 }
             }
             return null;
         }
 
-        /// <summary>
-        /// Aloca uma mesa para o cliente.
-        /// </summary>
-        /// <param name="mesa">Mesa a ser alocada.</param>
-        public void alocarMesa(Mesa mesa)
+        public double FecharConta(int idRequisicao)
         {
-            if (mesas.Count < MAX_MESAS)
+            Requisicao requisicao = null;
+            foreach (var tmpRequisicao in requisicoesAtuais)
             {
-                mesas.Add(mesa.Id, mesa);
-                mesa.OcuparMesa();
+                if (tmpRequisicao.GetID() == idRequisicao)
+                {
+                    requisicao = tmpRequisicao;
+                }
             }
-        }
 
+            if (requisicao != null)
+            {
+                FecharRequisicao(requisicao);
+                Console.WriteLine(requisicao.ToString());
+                requisicao.GetMesa().LiberarMesa();
+                RodarFila();
+                return requisicao.fecharConta();
+            }
+            else
+                throw new NullReferenceException("Requisicao inexistente.");
+        }
         /// <summary>
-        /// Fecha a requisição, liberando a mesa associada.
+        /// Fecha a requisição, removendo a requisição da lista de Requisicoes sendo atendidas no momento e gera o horario de saída da requisiçao.
         /// </summary>
         /// <param name="idRequisicao">ID da requisição a ser fechada.</param>
         /// <returns>1 se a requisição foi fechada com sucesso, -1 se não.</returns>
-        public void FecharRequisicao(int idRequisicao)
+        private Requisicao FecharRequisicao(Requisicao requisicao)
         {
-            foreach (var mesa in mesas.Values)
-            {
-                if (mesa.IsOcupada)
-                {
-                    mesa.LiberarMesa(); // Libera a mesa
-                    break;
-                }
-            }
+            requisicao.EncerrarRequisicao();
+            requisicoesAtuais.Remove(requisicao);
+            return requisicao;
         }
 
-        /// <summary>
-        /// Adiciona uma nova mesa ao restaurante.
-        /// </summary>
-        /// <param name="mesa">Mesa a ser adicionada.</param>
-        public void adicionarMesa(Mesa mesa)
+        public Requisicao RemoverListaEspera(int idRequisicao)
         {
-            if (!mesas.ContainsKey(mesa.Id))
+            Requisicao requisicao = null;
+            foreach(var tmprequisicao in listaEspera)
             {
-                mesas.Add(mesa.Id, mesa);
+                if(tmprequisicao.GetID() == idRequisicao)
+                    requisicao = tmprequisicao;
             }
+
+            if (requisicao != null)
+            {
+                listaEspera.Remove(requisicao);
+                return requisicao;
+            }
+            else
+                throw new NullReferenceException("Requisicao inexistente");
         }
+
+        
         public Requisicao buscaRequisicao(int idRequisicao)
         {
-            Requisicao requisicao = filaEspera.FirstOrDefault(r => r.Id == idRequisicao);
-            return requisicao;
+            Requisicao requisicao = null;
+            foreach (var tmpRequisicao in requisicoesAtuais)
+            {
+                if(tmpRequisicao.GetID() == idRequisicao)
+                {
+                    requisicao= tmpRequisicao;
+                }
+            }
+            if(requisicao == null)
+            {
+                foreach(var tmpRequisicao in listaEspera)
+                {
+                    if (tmpRequisicao.GetID() == idRequisicao)
+                    {
+                        requisicao = tmpRequisicao;
+                    }
+                }
+            }
+            
+            if (requisicao != null)
+                return requisicao;
+            else
+                throw new ArgumentNullException("Requisicao não existe");
+             
         }
 
         public void exibirCardapio()
@@ -155,17 +178,18 @@ namespace Tetris.Model
             cardapio.apresentarCardapio();
         }
 
-        public void incluirProdutoRequisicao(int idProduto, int idRequisicao)
+        public Produto incluirProduto(int idProduto, int idRequisicao)
         {
             Produto produto = cardapio.BuscarProduto(idProduto);
             Requisicao requisicao = buscaRequisicao(idRequisicao);
             if (requisicao != null)
             {
-                Pedido pedido = requisicao.pedido;
-                if (pedido != null)
-                {
-                    pedido.AdicionarItem(produto);
-                }
+                requisicao.ReceberProduto(produto);
+                return produto;
+            }
+            else
+            {
+                throw new ArgumentNullException("Requisicao não existente");
             }
         }
     }
