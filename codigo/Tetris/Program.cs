@@ -70,14 +70,14 @@ namespace Tetris
                 Console.WriteLine("Digite a quantidade de pessoas");
                 var qnt = Convert.ToInt32(Console.ReadLine());
                 req = new Requisicao(cliente, qnt);
-                Console.WriteLine($"\n{novaRequisicao} adicionada com sucesso.");
+                Console.WriteLine($"\n{req} adicionada com sucesso.");
 
-                return novaRequisicao;
+                return req;
             }
             catch (ArgumentNullException argEx)           {
                 Console.WriteLine("Não pode abrir uma requisiçãõ sem ter cadastrado um cliente");
             }
-            return 
+            return null;
         }
         
         public static void Main(string[] args)
@@ -85,6 +85,7 @@ namespace Tetris
             Cliente ultimoClienteRegistrado = null;
             int opcao;
             Restaurante restaurante = new Restaurante();
+            Requisicao req = null;
 
             do
             {
@@ -109,17 +110,17 @@ namespace Tetris
                         pausa();
                         break;
                     case 3:
-                            criarRequisicao(restaurante, ultimoClienteRegistrado);
+                        req = criarRequisicao(restaurante, ultimoClienteRegistrado);
                         pausa();
                         break;
                     case 4:
-                        if (idRequisicao != null)
+                        if (req != null)
                         {
-                            idRequisicao = finalizarRequisicao();
+                            req.EncerrarRequisicao();
                         }
                         else
                         {
-                            Console.WriteLine($"Requisição de nº {idRequisicao} não encontrada!");
+                            Console.WriteLine($"Requisição de nº {req.Id} não encontrada!");
                         }
                         pausa();
                         break;

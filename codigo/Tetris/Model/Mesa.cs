@@ -14,20 +14,8 @@ namespace Tetris.Model
         /// e se a mesa se encontra ocupada ou disponível.
         /// </summary>
 
-        private static int proxId = 1;
-        private int Id;
         private int capacidade;
         public bool IsOcupada {  get; private set; }
-
-        public bool isOcupada 
-        {  
-            get { return isOcupada; } 
-        }
-
-        public int id
-        {
-            get { return Id; }
-        }
 
         /// <summary>
         /// Construtor da classe Mesa, inicializando a capacidade e o estado de ocupação.
@@ -35,21 +23,18 @@ namespace Tetris.Model
         /// <param name="capacidade">Capacidade de pessoas que a mesa pode acomodar</param>
         public Mesa(int capacidade)
         {
-            Id = proxId;
-            proxId++;
-
             this.capacidade = capacidade;
-            this.isOcupada = false;
+            this.IsOcupada = false;
         }
 
         /// <summary>
         /// Método que liberarMesa é responsável por verificar se determinada mesa está disponível.
         /// </summary>
         /// <returns> Retorna false caso a mesa esteja disponível.</returns>
-        public bool liberarMesa()
+        public bool LiberarMesa()
         {
             IsOcupada = true;
-            if (!isOcupada)
+            if (!IsOcupada)
             {
                 return false;
             }
@@ -59,7 +44,7 @@ namespace Tetris.Model
         /// Método que ocuparMesa é responsável por verificar se determinada mesa está ocupada.
         /// </summary>
         /// <returns>Retorna true caso a mesa esteja ocupada.</returns>
-        public void ocuparMesa()
+        public void OcuparMesa()
         {
             IsOcupada = true;
         }
@@ -71,7 +56,7 @@ namespace Tetris.Model
         /// <returns> Retorna true caso exista alguma mesa disponível e false caso não tenha </returns>
         public bool VerificarDisponibilidade(int qtdPessoas)
         {
-            if (!isOcupada && qtdPessoas <= capacidade)
+            if (!IsOcupada && qtdPessoas <= capacidade)
             {
                 return true;
             }

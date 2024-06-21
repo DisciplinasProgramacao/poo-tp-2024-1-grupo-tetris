@@ -15,6 +15,7 @@ namespace Tetris.Model
         private Queue<Requisicao> filaEspera;      // Fila de espera para as requisições de mesa
         private Dictionary<int, Mesa> mesas;       // Dicionário de mesas, onde a chave é o ID da mesa
         private const int MAX_MESAS = 10;          // Número máximo de mesas no restaurante
+        private Cardapio cardapio { get; set; }
 
         /// <summary>
         /// Construtor da classe Restaurante.
@@ -110,8 +111,8 @@ namespace Tetris.Model
         {
             if (mesas.Count < MAX_MESAS)
             {
-                mesas.Add(mesa.id, mesa);
-                mesa.ocuparMesa();
+                mesas.Add(mesa.Id, mesa);
+                mesa.OcuparMesa();
             }
         }
 
@@ -138,14 +139,14 @@ namespace Tetris.Model
         /// <param name="mesa">Mesa a ser adicionada.</param>
         public void adicionarMesa(Mesa mesa)
         {
-            if (!mesas.ContainsKey(mesa.id))
+            if (!mesas.ContainsKey(mesa.Id))
             {
-                mesas.Add(mesa.id, mesa);
+                mesas.Add(mesa.Id, mesa);
             }
         }
         public Requisicao buscaRequisicao(int idRequisicao)
         {
-            Requisicao requisicao = requisicaoOn.Find(r => r.idRequisicao == idRequisicao);
+            Requisicao requisicao = filaEspera.FirstOrDefault(r => r.Id == idRequisicao);
             return requisicao;
         }
 
@@ -156,11 +157,11 @@ namespace Tetris.Model
 
         public void incluirProdutoRequisicao(int idProduto, int idRequisicao)
         {
-            Produto produto = cardapio.buscarProduto(idProduto);
+            Produto produto = cardapio.BuscarProduto(idProduto);
             Requisicao requisicao = buscaRequisicao(idRequisicao);
             if (requisicao != null)
             {
-                Pedido pedido = requisicao.Pedido;
+                Pedido pedido = requisicao.pedido;
                 if (pedido != null)
                 {
                     pedido.AdicionarItem(produto);

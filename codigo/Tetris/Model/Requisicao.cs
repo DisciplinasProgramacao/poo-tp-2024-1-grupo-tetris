@@ -9,7 +9,7 @@ namespace Tetris.Model
     public class Requisicao : Entidade
     {
         private Cliente cliente;
-        private Pedido pedido;
+        public Pedido pedido { get; private set; }
         public int qtdPessoas { get; private set; }
         Mesa mesa;
         private DateTime entradaCliente;
