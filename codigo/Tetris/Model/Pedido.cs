@@ -52,5 +52,15 @@ namespace Tetris.Model
         {
             StatusPedidoAberto = false;
         }
+
+        public override string ToString()
+        {
+            string tmp ="";
+            foreach(var item in this.Itens)
+            {
+                tmp+= item.ToString()+" ";
+            }
+            return tmp;
+        }
     }
 }

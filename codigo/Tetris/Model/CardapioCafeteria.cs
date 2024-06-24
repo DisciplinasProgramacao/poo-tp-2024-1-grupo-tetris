@@ -10,12 +10,13 @@ namespace Tetris.Model
     {
         public CardapioCafeteria()
         {
-            itens = new Dictionary<int, Produto>();
+            comidas = new Dictionary<int, Produto>();
+            bebidas = new Dictionary<int, Produto>();
             InicializarCardapio();
         }
         public override void InicializarCardapio()
         {
-            var produtos = new (string Nome, double Valor)[]
+            var comida = new (string Nome, double Valor)[]
             {
                 ("Cheesecake de frutas vermelhas", 15.00),
                 ("Bolinha de cogumelo", 7.00),
@@ -27,10 +28,24 @@ namespace Tetris.Model
 
             };
 
-            foreach (var (nome, valor) in produtos)
+            var bebida = new (string Nome, double Valor)[]
+            {
+                ("Agua", 3.00),
+                ("Copo de suco", 7.00),
+                ("Café expresso organico", 6.00)
+
+            };
+
+            foreach (var (nome, valor) in comida)
             {
                 Produto produto = new Produto(nome, valor);
-                itens.Add(produto.GetId(), produto);
+                comidas.Add(produto.GetId(), produto);
+            }
+
+            foreach (var (nome, valor) in bebida)
+            {
+                Produto produto = new Produto(nome, valor);
+                bebidas.Add(produto.GetId(), produto);
             }
         }
     }

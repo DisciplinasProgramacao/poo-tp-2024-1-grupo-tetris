@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tetris.Model
 {
-    internal class Cafeteria : Estabelecimento, IPedidoCafeteria
+    internal class Cafeteria : Estabelecimento
     {
         public Produto incluirProduto(int idProduto)
         {

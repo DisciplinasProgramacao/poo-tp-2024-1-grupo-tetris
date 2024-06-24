@@ -9,11 +9,14 @@ namespace Tetris.Model
     public abstract class Cardapio : Entidade
     {
         // Criando um dicionario para ajudar a pesquisar. 
-        protected Dictionary<int, Produto> itens;
+        protected Dictionary<int, Produto> comidas;
+        protected Dictionary<int, Produto> bebidas;
+
 
         public Cardapio()
         {
-            itens = new Dictionary<int, Produto>();
+            comidas = new Dictionary<int, Produto>();
+            bebidas = new Dictionary<int, Produto>();
         }
 
         /// <summary>
@@ -28,10 +31,16 @@ namespace Tetris.Model
         /// <returns>Produto encontrado ou null se não encontrado.</returns>
         public virtual Produto BuscarProduto(int idProduto)
         {
-            if (itens.ContainsKey(idProduto))
+            if (comidas.ContainsKey(idProduto))
             {
-                return itens[idProduto];
+                return comidas[idProduto];
             }
+
+            if(bebidas.ContainsKey(idProduto))
+            { 
+                return bebidas[idProduto];
+            }
+
             return null; // Produto não encontrado
         }
 
@@ -41,16 +50,22 @@ namespace Tetris.Model
         /// Concatena todos os produtos para ser exibido
         /// </summary>
         /// <returns>To String para impressão.</returns>
-        public virtual string apresentarCardapio()
+        public virtual void apresentarCardapio()
         {
             StringBuilder cardapio = new StringBuilder();
             cardapio.AppendLine("----- Cardápio -----");
-            foreach (var item in itens.Values) 
+            foreach (var item in comidas.Values) 
             {
                 cardapio.AppendLine(item.GetId() + " - " + item.ToString());
             }
 
-            return cardapio.ToString();
+            foreach (var item in bebidas.Values)
+            {
+                cardapio.AppendLine(item.GetId() + " - " + item.ToString());
+            }
+            
+            Console.WriteLine(cardapio);
+            
         }
     }
 

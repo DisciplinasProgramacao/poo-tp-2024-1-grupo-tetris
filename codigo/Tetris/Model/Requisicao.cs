@@ -54,6 +54,11 @@ namespace Tetris.Model
         {
             return mesa;
         }
+
+        public Cliente GetCliente()
+        {
+            return cliente;
+        }
         //Consultas
         public bool BuscarCliente(string nome)
         {

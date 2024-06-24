@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Tetris.Model
 {
-    internal class Restaurante : Estabelecimento, IPedidoRestaurante
+    internal class Restaurante : Estabelecimento
     {
         private const int MAX_MESAS = 10;
         private List<Requisicao> listaEspera; 
@@ -38,6 +38,8 @@ namespace Tetris.Model
                 else 
                     mesas.Add(new Mesa(8));
             }
+
+            cardapio = new CardapioRestaurante();
         }
 
         
@@ -50,7 +52,11 @@ namespace Tetris.Model
         {
             Requisicao requisicao = new Requisicao(cliente, qtdPessoas);
             listaEspera.Add(requisicao);
-            RodarFila();
+            if(listaEspera.Count != 0)
+            {
+                RodarFila();
+            }
+            
             return requisicao;
         }
 
@@ -61,17 +67,28 @@ namespace Tetris.Model
         /// </summary>
         private void RodarFila()
         {
-            foreach(var tmpRequisicao in listaEspera)
+            var atendidas = new List<Requisicao>();
+            if(listaEspera.Any())
             {
-                Mesa tmp = procurarMesaDisponivel(tmpRequisicao.GetQtdPessoas());
-                if(tmp != null)
+                foreach (Requisicao tmpRequisicao in listaEspera)
                 {
-                    requisicoesAtuais.Add(tmpRequisicao);
-                    tmpRequisicao.AlocarMesa(tmp);
-                    listaEspera.Remove(tmpRequisicao);
-                }
+                    Mesa tmp = procurarMesaDisponivel(tmpRequisicao.GetQtdPessoas());
+                    if (tmp != null)
+                    {
+                        requisicoesAtuais.Add(tmpRequisicao);
+                        tmpRequisicao.AlocarMesa(tmp);
+                        atendidas.Add(tmpRequisicao);
+                        
+                    }
 
+                }
             }
+
+            foreach(var tmpRequisicao in atendidas)
+            {
+                listaEspera.Remove(tmpRequisicao);
+            }
+            
         }
 
         /// <summary>
@@ -92,12 +109,13 @@ namespace Tetris.Model
             return null;
         }
 
-        public double FecharConta(int idRequisicao)
+        
+        public double FecharConta(string nome)
         {
             Requisicao requisicao = null;
             foreach (var tmpRequisicao in requisicoesAtuais)
             {
-                if (tmpRequisicao.GetID() == idRequisicao)
+                if (tmpRequisicao.GetCliente().GetNome() == nome)
                 {
                     requisicao = tmpRequisicao;
                 }
@@ -145,12 +163,12 @@ namespace Tetris.Model
         }
 
         
-        public Requisicao buscaRequisicao(int idRequisicao)
+        public Requisicao buscaRequisicao(string nome)
         {
             Requisicao requisicao = null;
             foreach (var tmpRequisicao in requisicoesAtuais)
             {
-                if(tmpRequisicao.GetID() == idRequisicao)
+                if(tmpRequisicao.GetCliente().GetNome() == nome)
                 {
                     requisicao= tmpRequisicao;
                 }
@@ -159,7 +177,7 @@ namespace Tetris.Model
             {
                 foreach(var tmpRequisicao in listaEspera)
                 {
-                    if (tmpRequisicao.GetID() == idRequisicao)
+                    if (tmpRequisicao.GetCliente().GetNome() == nome)
                     {
                         requisicao = tmpRequisicao;
                     }
@@ -173,10 +191,12 @@ namespace Tetris.Model
              
         }
 
-        public Produto incluirProduto(int idProduto, int idRequisicao)
+
+
+        public Produto incluirProduto(int idProduto, string nome)
         {
             Produto produto = cardapio.BuscarProduto(idProduto);
-            Requisicao requisicao = buscaRequisicao(idRequisicao);
+            Requisicao requisicao = buscaRequisicao(nome);
             if (requisicao != null)
             {
                 requisicao.ReceberProduto(produto);
@@ -188,7 +208,26 @@ namespace Tetris.Model
             }
         }
 
-        
+        public Pedido BuscarPedidos(Cliente cliente)
+        {
+            foreach(var tmp in requisicoesAtuais)
+            {
+                if(tmp.GetCliente() == cliente) 
+                {
+                    return tmp.GetPedido();
+                }
+            }
+
+            foreach (var tmp in listaEspera)
+            {
+                if (tmp.GetCliente() == cliente)
+                {
+                    return tmp.GetPedido();
+                }
+            }
+
+            throw new ArgumentNullException("Não existe pedidos para o cliente ");
+        }
 
 
     }

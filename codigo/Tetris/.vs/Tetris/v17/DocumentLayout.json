@@ -3,6 +3,50 @@
   "WorkspaceRootPath": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|c:\\users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\tetris\\model\\restaurante.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|solutionrelative:model\\restaurante.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|c:\\users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\tetris\\model\\pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|solutionrelative:model\\pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|c:\\users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\tetris\\model\\produto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|solutionrelative:model\\produto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|c:\\users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\tetris\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|c:\\users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\tetris\\model\\cardapio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|solutionrelative:model\\cardapio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|c:\\users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\tetris\\model\\cardapiorestaurante.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|solutionrelative:model\\cardapiorestaurante.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|c:\\users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\tetris\\model\\estabelecimento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|solutionrelative:model\\estabelecimento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|c:\\users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\tetris\\model\\cafeteria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|solutionrelative:model\\cafeteria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|c:\\users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\tetris\\model\\cardapiocafeteria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|solutionrelative:model\\cardapiocafeteria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|c:\\users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\tetris\\model\\entidade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|solutionrelative:model\\entidade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|c:\\users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\tetris\\model\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|solutionrelative:model\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|c:\\users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\tetris\\model\\comanda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|solutionrelative:model\\comanda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,60 +55,8 @@
       "RelativeMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|solutionrelative:model\\requisicao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|c:\\users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\tetris\\model\\produto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|solutionrelative:model\\produto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|c:\\users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\tetris\\model\\entidade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|solutionrelative:model\\entidade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|c:\\users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\tetris\\model\\cafeteria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|solutionrelative:model\\cafeteria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|c:\\users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\tetris\\model\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|solutionrelative:model\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|c:\\users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\tetris\\model\\pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|solutionrelative:model\\pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|c:\\users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\tetris\\model\\restaurante.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|solutionrelative:model\\restaurante.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|c:\\users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\tetris\\model\\ipedidorestaurante.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|solutionrelative:model\\ipedidorestaurante.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|c:\\users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\tetris\\model\\estabelecimento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|solutionrelative:model\\estabelecimento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|c:\\users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\tetris\\model\\ipedidocafeteria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|solutionrelative:model\\ipedidocafeteria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|c:\\users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\tetris\\model\\cardapiorestaurante.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|solutionrelative:model\\cardapiorestaurante.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|c:\\users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\tetris\\model\\cardapiocafeteria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|solutionrelative:model\\cardapiocafeteria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|c:\\users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\tetris\\model\\cardapio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|solutionrelative:model\\cardapio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|c:\\users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\tetris\\model\\mesa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|solutionrelative:model\\mesa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|c:\\users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\tetris\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F50BF99-BDA3-4C25-AA10-D285419F7826}|Tetris.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -74,73 +66,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 6,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Comanda.cs",
-              "DocumentMoniker": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Model\\Comanda.cs",
-              "RelativeDocumentMoniker": "Model\\Comanda.cs",
-              "ToolTip": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Model\\Comanda.cs*",
-              "RelativeToolTip": "Model\\Comanda.cs*",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAA1AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-24T00:25:17.674Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Cafeteria.cs",
-              "DocumentMoniker": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Model\\Cafeteria.cs",
-              "RelativeDocumentMoniker": "Model\\Cafeteria.cs",
-              "ToolTip": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Model\\Cafeteria.cs*",
-              "RelativeToolTip": "Model\\Cafeteria.cs*",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-24T00:21:25.027Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "IPedidoCafeteria.cs",
-              "DocumentMoniker": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Model\\IPedidoCafeteria.cs",
-              "RelativeDocumentMoniker": "Model\\IPedidoCafeteria.cs",
-              "ToolTip": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Model\\IPedidoCafeteria.cs*",
-              "RelativeToolTip": "Model\\IPedidoCafeteria.cs*",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAfAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-24T00:11:27.239Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "IPedidoRestaurante.cs",
-              "DocumentMoniker": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Model\\IPedidoRestaurante.cs",
-              "RelativeDocumentMoniker": "Model\\IPedidoRestaurante.cs",
-              "ToolTip": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Model\\IPedidoRestaurante.cs*",
-              "RelativeToolTip": "Model\\IPedidoRestaurante.cs*",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-24T00:10:42.844Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Estabelecimento.cs",
-              "DocumentMoniker": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Model\\Estabelecimento.cs",
-              "RelativeDocumentMoniker": "Model\\Estabelecimento.cs",
-              "ToolTip": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Model\\Estabelecimento.cs*",
-              "RelativeToolTip": "Model\\Estabelecimento.cs*",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-23T23:20:30.903Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
@@ -154,21 +81,25 @@
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Cliente.cs",
-              "DocumentMoniker": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Model\\Cliente.cs",
-              "RelativeDocumentMoniker": "Model\\Cliente.cs",
-              "ToolTip": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Model\\Cliente.cs*",
-              "RelativeToolTip": "Model\\Cliente.cs*",
-              "ViewState": "AQIAAAIAAAAAAAAAAAAnwBYAAAAAAAAA",
+              "DocumentIndex": 6,
+              "Title": "Estabelecimento.cs",
+              "DocumentMoniker": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Model\\Estabelecimento.cs",
+              "RelativeDocumentMoniker": "Model\\Estabelecimento.cs",
+              "ToolTip": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Model\\Estabelecimento.cs",
+              "RelativeToolTip": "Model\\Estabelecimento.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-21T01:19:17.518Z",
+              "WhenOpened": "2024-06-23T23:20:30.903Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 9,
               "Title": "Entidade.cs",
               "DocumentMoniker": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Model\\Entidade.cs",
               "RelativeDocumentMoniker": "Model\\Entidade.cs",
@@ -181,41 +112,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 0,
               "Title": "Restaurante.cs",
               "DocumentMoniker": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Model\\Restaurante.cs",
               "RelativeDocumentMoniker": "Model\\Restaurante.cs",
-              "ToolTip": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Model\\Restaurante.cs*",
-              "RelativeToolTip": "Model\\Restaurante.cs*",
-              "ViewState": "AQIAAKEAAAAAAAAAAAAAwLsAAAANAAAA",
+              "ToolTip": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Model\\Restaurante.cs",
+              "RelativeToolTip": "Model\\Restaurante.cs",
+              "ViewState": "AQIAAHAAAAAAAAAAAAA1wIQAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-21T01:19:17.485Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "Pedido.cs",
               "DocumentMoniker": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Model\\Pedido.cs",
               "RelativeDocumentMoniker": "Model\\Pedido.cs",
-              "ToolTip": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Model\\Pedido.cs",
-              "RelativeToolTip": "Model\\Pedido.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA8AAAAJAAAA",
+              "ToolTip": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Model\\Pedido.cs*",
+              "RelativeToolTip": "Model\\Pedido.cs*",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAwwDwAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-21T01:19:17.511Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Requisicao.cs",
-              "DocumentMoniker": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Model\\Requisicao.cs",
-              "RelativeDocumentMoniker": "Model\\Requisicao.cs",
-              "ToolTip": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Model\\Requisicao.cs",
-              "RelativeToolTip": "Model\\Requisicao.cs",
-              "ViewState": "AQIAADYAAAAAAAAAAAAmwE4AAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-21T01:19:17.499Z",
               "EditorCaption": ""
             },
             {
@@ -226,53 +144,118 @@
               "RelativeDocumentMoniker": "Model\\Produto.cs",
               "ToolTip": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Model\\Produto.cs",
               "RelativeToolTip": "Model\\Produto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAoAAAAYAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABMAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-21T01:19:17.507Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 5,
               "Title": "CardapioRestaurante.cs",
               "DocumentMoniker": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Model\\CardapioRestaurante.cs",
               "RelativeDocumentMoniker": "Model\\CardapioRestaurante.cs",
               "ToolTip": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Model\\CardapioRestaurante.cs",
               "RelativeToolTip": "Model\\CardapioRestaurante.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAACUAAAAAAAAA",
+              "ViewState": "AQIAABMAAAAAAAAAAAAgwCQAAAAwAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-23T23:42:50.18Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "CardapioCafeteria.cs",
-              "DocumentMoniker": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Model\\CardapioCafeteria.cs",
-              "RelativeDocumentMoniker": "Model\\CardapioCafeteria.cs",
-              "ToolTip": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Model\\CardapioCafeteria.cs",
-              "RelativeToolTip": "Model\\CardapioCafeteria.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABgAAAAAAAAA",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAEMAAAAAAAAAAAAcwF0AAABKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-23T23:43:18.886Z",
+              "WhenOpened": "2024-06-21T01:19:17.522Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 4,
               "Title": "Cardapio.cs",
               "DocumentMoniker": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Model\\Cardapio.cs",
               "RelativeDocumentMoniker": "Model\\Cardapio.cs",
-              "ToolTip": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Model\\Cardapio.cs*",
-              "RelativeToolTip": "Model\\Cardapio.cs*",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAVAAAA",
+              "ToolTip": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Model\\Cardapio.cs",
+              "RelativeToolTip": "Model\\Cardapio.cs",
+              "ViewState": "AQIAACAAAAAAAAAAAAAwwEIAAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-21T01:19:17.503Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 8,
+              "Title": "CardapioCafeteria.cs",
+              "DocumentMoniker": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Model\\CardapioCafeteria.cs",
+              "RelativeDocumentMoniker": "Model\\CardapioCafeteria.cs",
+              "ToolTip": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Model\\CardapioCafeteria.cs",
+              "RelativeToolTip": "Model\\CardapioCafeteria.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAxwDIAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T23:43:18.886Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Comanda.cs",
+              "DocumentMoniker": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Model\\Comanda.cs",
+              "RelativeDocumentMoniker": "Model\\Comanda.cs",
+              "ToolTip": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Model\\Comanda.cs",
+              "RelativeToolTip": "Model\\Comanda.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA4AAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T00:25:17.674Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Cliente.cs",
+              "DocumentMoniker": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Model\\Cliente.cs",
+              "RelativeDocumentMoniker": "Model\\Cliente.cs",
+              "ToolTip": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Model\\Cliente.cs",
+              "RelativeToolTip": "Model\\Cliente.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAnwBYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-21T01:19:17.518Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Cafeteria.cs",
+              "DocumentMoniker": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Model\\Cafeteria.cs",
+              "RelativeDocumentMoniker": "Model\\Cafeteria.cs",
+              "ToolTip": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Model\\Cafeteria.cs",
+              "RelativeToolTip": "Model\\Cafeteria.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T00:21:25.027Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Requisicao.cs",
+              "DocumentMoniker": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Model\\Requisicao.cs",
+              "RelativeDocumentMoniker": "Model\\Requisicao.cs",
+              "ToolTip": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Model\\Requisicao.cs",
+              "RelativeToolTip": "Model\\Requisicao.cs",
+              "ViewState": "AQIAAEwAAAAAAAAAAAAYwDsAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-21T01:19:17.499Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "Mesa.cs",
               "DocumentMoniker": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Model\\Mesa.cs",
               "RelativeDocumentMoniker": "Model\\Mesa.cs",
@@ -280,21 +263,7 @@
               "RelativeToolTip": "Model\\Mesa.cs",
               "ViewState": "AQIAAD4AAAAAAAAAAAAAAD4AAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-21T01:19:17.492Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\chris\\source\\repos\\poo-tp-2024-1-grupo-tetris\\codigo\\Tetris\\Program.cs*",
-              "RelativeToolTip": "Program.cs*",
-              "ViewState": "AQIAADQAAAAAAAAAAAAiwFMAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-21T01:19:17.522Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-21T01:19:17.492Z"
             }
           ]
         }
