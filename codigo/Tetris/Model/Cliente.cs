@@ -21,11 +21,6 @@ namespace Tetris.Model
             return nome;
         }
 
-        public int GetId()
-        {
-            return Id;
-        }
-
         public override string ToString()
         {
             return "Cliente nº " + Id + ": " + nome;

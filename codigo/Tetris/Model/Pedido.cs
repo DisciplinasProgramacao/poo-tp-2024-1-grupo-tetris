@@ -17,7 +17,10 @@ namespace Tetris.Model
             Itens = new List<Produto>();
         }
 
-        public List<Produto> GetPedido() => Itens;
+        public List<Produto> GetPedido()
+        {
+            return Itens;
+        }
 
         public void AdicionarItem(Produto novo)
         {

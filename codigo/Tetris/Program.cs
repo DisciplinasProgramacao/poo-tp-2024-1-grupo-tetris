@@ -2,7 +2,7 @@
 
 namespace Tetris
 {
-    public class Program
+    internal class Program
     {
         public static void pausa()
         {
@@ -70,7 +70,7 @@ namespace Tetris
             }
             return null;
         }
-        
+
         public static void Main(string[] args)
         {
             Cliente ultimoClienteRegistrado = null;
@@ -78,46 +78,6 @@ namespace Tetris
             Restaurante restaurante = new Restaurante();
             Requisicao req = null;
 
-            do
-            {
-                opcao = MenuPrincipal();
-                switch (opcao)
-                {
-                    case 1:
-                        ultimoClienteRegistrado = cadastrarCliente(restaurante);
-
-                        pausa();
-                        break;
-                    case 2:
-                        var clienteAtual = localizarCliente(restaurante);
-                        if (clienteAtual != null)
-                        {
-                            Console.WriteLine($"\n{clienteAtual}");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Cliente não encontrado.");
-                        }
-                        pausa();
-                        break;
-                    case 3:
-                        req = criarRequisicao(restaurante, ultimoClienteRegistrado);
-                        pausa();
-                        break;
-                    case 4:
-                        if (req != null)
-                        {
-                            req.EncerrarRequisicao();
-                        }
-                        else
-                        {
-                            Console.WriteLine($"Requisição de nº {req.Id} não encontrada!");
-                        }
-                        pausa();
-                        break;
-                }
-            } while (opcao != 0);
-
+        }
         }
     }
-}

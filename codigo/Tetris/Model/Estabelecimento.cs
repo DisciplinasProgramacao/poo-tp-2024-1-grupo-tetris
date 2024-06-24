@@ -10,9 +10,17 @@ namespace Tetris.Model
     {
         protected Cardapio cardapio;
 
-        public Estabelecimento()
-        { 
-            
+        
+
+        public virtual void ApresentarCardapio()
+        {
+            cardapio.apresentarCardapio();
         }
+
+        public virtual Produto BuscarProduto(int idProduto)
+        {
+            return cardapio.BuscarProduto(idProduto);
+        }
+        
     }
 }

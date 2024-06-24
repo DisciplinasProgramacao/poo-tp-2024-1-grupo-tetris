@@ -29,5 +29,10 @@ namespace Tetris.Model
             _proximosIds[tipo]++;
             return idAtual;
         }
+
+        public virtual int GetId()
+        {
+            return Id;
+        }
     }
 }

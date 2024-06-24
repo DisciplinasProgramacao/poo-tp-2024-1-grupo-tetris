@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Tetris.Model
 {
-    public class Restaurante : Estabelecimento
+    internal class Restaurante : Estabelecimento, IPedidoRestaurante
     {
         private const int MAX_MESAS = 10;
         private List<Requisicao> listaEspera; 
@@ -23,7 +23,7 @@ namespace Tetris.Model
         /// Construtor da classe Restaurante.
         /// Inicializa as estruturas de dados.
         /// </summary>
-        public Restaurante()
+        public Restaurante() 
         {
             listaEspera = new List<Requisicao>();
             mesas = new List<Mesa>();
@@ -173,11 +173,6 @@ namespace Tetris.Model
              
         }
 
-        public void exibirCardapio()
-        {
-            cardapio.apresentarCardapio();
-        }
-
         public Produto incluirProduto(int idProduto, int idRequisicao)
         {
             Produto produto = cardapio.BuscarProduto(idProduto);
@@ -192,5 +187,9 @@ namespace Tetris.Model
                 throw new ArgumentNullException("Requisicao não existente");
             }
         }
+
+        
+
+
     }
 }
