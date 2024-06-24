@@ -27,6 +27,7 @@ Versão 02 - Revisão 2
 ![image](https://github.com/DisciplinasProgramacao/poo-tp-2024-1-grupo-tetris/assets/101272935/df3b11a0-9dcb-4e19-ad80-64dd70629891)
 
 Versão 03
-![Diagrama Restaurante-Diagrama UML Versão 3](https://github.com/DisciplinasProgramacao/poo-tp-2024-1-grupo-tetris/assets/104520144/5be5ab1e-0064-4269-8c1e-b9592f13bc84)
+![Diagrama Restaurante-Diagrama UML Versão 3](https://github.com/DisciplinasProgramacao/poo-tp-2024-1-grupo-tetris/assets/104520144/a1645e9d-2af4-4c52-8516-5638cbe88b97)
+
 
 
