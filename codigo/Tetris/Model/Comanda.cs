@@ -9,8 +9,8 @@ namespace Tetris.Model
 {
     internal class Comanda : Entidade
     {
-        Cliente cliente;
-        Pedido pedido;
+        private Cliente cliente;
+        private Pedido pedido;
 
         public Comanda(Cliente cliente)
         {
