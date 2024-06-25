@@ -27,7 +27,8 @@ Versão 02 - Revisão 2
 ![image](https://github.com/DisciplinasProgramacao/poo-tp-2024-1-grupo-tetris/assets/101272935/df3b11a0-9dcb-4e19-ad80-64dd70629891)
 
 Versão 03
-![Diagrama Restaurante-Versão3](https://github.com/DisciplinasProgramacao/poo-tp-2024-1-grupo-tetris/assets/104520144/1dfde383-0dcb-4247-aa75-6ebf51b543e8)
+![Diagrama Restaurante-Versão3](https://github.com/DisciplinasProgramacao/poo-tp-2024-1-grupo-tetris/assets/104520144/fec0dcaa-e1e4-4d4e-841f-8942d682193b)
+
 
 
 
