@@ -228,5 +228,25 @@ namespace Tetris.Model
             string final = "\n" + mesa + "\n" + listasAtuais + "\n" + listasEspera;
             return final;
         }
+
+        public bool TemRequisicao(Cliente cliente)
+        {
+            foreach(Requisicao requisicao in requisicoesAtuais)
+            {
+                if(requisicao.GetCliente() == cliente)
+                {
+                    return true;
+                }
+            }
+            foreach (Requisicao requisicao in listaEspera)
+            {
+                if (requisicao.GetCliente() == cliente)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }

@@ -249,6 +249,7 @@ namespace Tetris
                                                 int idProduto = int.Parse(Console.ReadLine());
                                                 restaurante.incluirProduto(idProduto, nome);
                                                 Console.WriteLine("Produto inserido com sucesso!!");
+                                                entradaValida = true;
                                                 Console.ReadKey();
                                             }
                                             else
