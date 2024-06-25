@@ -191,6 +191,8 @@ namespace Tetris.Model
 
         public override Pedido BuscarPedidos(Cliente cliente)
         {
+            if (requisicoesAtuais.Count == 0)
+                throw new NullReferenceException("Não existe requisições para este cliente. ");
             var pedido = requisicoesAtuais.FirstOrDefault(x => x.GetCliente() == cliente).GetPedido();
             if (pedido != null)
                 return pedido;
