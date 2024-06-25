@@ -55,15 +55,14 @@ namespace Tetris.Model
 
         public override Pedido BuscarPedidos(Cliente cliente)
         {
-            foreach (Comanda tmp in comandas)
-            {
-                if (tmp.GetCliente() == cliente)
-                {
-                    return tmp.GetPedido();
-                }
-            }
+            var pedido = comandas.Where(x => x.GetCliente() == cliente)
+                .Select(x => x.GetPedido())
+                .FirstOrDefault();
 
-            throw new NullReferenceException("Não existe pedidos para o cliente ");
+            if(pedido == null)
+             throw new NullReferenceException("Não existe pedidos para o cliente ");
+
+            return pedido;
         }
     }
 }

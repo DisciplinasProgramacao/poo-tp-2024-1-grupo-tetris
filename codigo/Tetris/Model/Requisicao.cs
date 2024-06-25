@@ -40,11 +40,6 @@ namespace Tetris.Model
             return qtdPessoas;
         }
 
-        public int GetID()
-        {
-            return Id;
-        }
-
         public Pedido GetPedido() 
         {
             return pedido;

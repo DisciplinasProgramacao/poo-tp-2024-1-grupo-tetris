@@ -32,16 +32,7 @@ namespace Tetris.Model
             StatusPedidoAberto = true;
         }
 
-        public double CalcularValorTotal()
-        {
-            double valorTotal = 0;
-            foreach(Produto item in this.Itens)
-            {
-                valorTotal += item.valor;
-            }
-
-            return valorTotal;
-        }
+        public double CalcularValorTotal() => this.Itens.Sum(x => x.valor);
 
         public double CalcularDivisaoValor(int quantidadeDivisões)
         {

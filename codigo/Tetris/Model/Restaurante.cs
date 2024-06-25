@@ -110,13 +110,8 @@ namespace Tetris.Model
         public override double FecharConta(string nome)
         {
             Requisicao requisicao = null;
-            foreach (Requisicao tmpRequisicao in requisicoesAtuais)
-            {
-                if (tmpRequisicao.GetCliente().GetNome() == nome)
-                {
-                    requisicao = tmpRequisicao;
-                }
-            }
+
+            requisicao = requisicoesAtuais.FirstOrDefault(x => x.GetCliente().GetNome() == nome);
 
             if (requisicao != null)
             {
@@ -143,12 +138,7 @@ namespace Tetris.Model
 
         public Requisicao RemoverListaEspera(int idRequisicao)
         {
-            Requisicao requisicao = null;
-            foreach(Requisicao tmprequisicao in listaEspera)
-            {
-                if(tmprequisicao.GetID() == idRequisicao)
-                    requisicao = tmprequisicao;
-            }
+            Requisicao requisicao = listaEspera.FirstOrDefault(x => x.GetId() == idRequisicao);
 
             if (requisicao != null)
             {
@@ -162,14 +152,8 @@ namespace Tetris.Model
         
         public Requisicao buscaRequisicao(string nome)
         {
-            Requisicao requisicao = null;
-            foreach (Requisicao tmpRequisicao in requisicoesAtuais)
-            {
-                if(tmpRequisicao.GetCliente().GetNome() == nome)
-                {
-                    requisicao= tmpRequisicao;
-                }
-            }
+            Requisicao requisicao = requisicoesAtuais.FirstOrDefault(x => x.GetCliente().GetNome() == nome);
+
             if(requisicao == null)
             {
                 foreach(Requisicao tmpRequisicao in listaEspera)
@@ -207,21 +191,15 @@ namespace Tetris.Model
 
         public override Pedido BuscarPedidos(Cliente cliente)
         {
-            foreach(Requisicao tmp in requisicoesAtuais)
-            {
-                if(tmp.GetCliente() == cliente) 
-                {
-                    return tmp.GetPedido();
-                }
-            }
+            var pedido = requisicoesAtuais.FirstOrDefault(x => x.GetCliente() == cliente).GetPedido();
+            if (pedido != null)
+                return pedido;
 
-            foreach (Requisicao tmp in listaEspera)
-            {
-                if (tmp.GetCliente() == cliente)
-                {
-                    return tmp.GetPedido();
-                }
-            }
+
+            var pedidoListaEspera = listaEspera.FirstOrDefault(x => x.GetCliente() == cliente).GetPedido();
+
+            if (pedidoListaEspera != null)
+                return pedidoListaEspera;
 
             throw new NullReferenceException("Não existe pedidos para o cliente ");
         }
