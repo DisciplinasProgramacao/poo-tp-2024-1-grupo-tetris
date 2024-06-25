@@ -23,7 +23,7 @@ namespace Tetris.Model
             return tmp;
         }
 
-        public double FecharComanda(string nome)
+        public override double FecharConta(string nome)
         {
             Comanda tmp = BuscaComanda(nome);
             comandas.Remove(tmp);
@@ -34,14 +34,8 @@ namespace Tetris.Model
 
         private Comanda BuscaComanda(string nome)
         {
-            foreach(var tmp in comandas)
-            {
-                if(tmp.GetCliente().GetNome() == nome)
-                {
-                    return tmp;
-                }
-            }
-
+            
+            Comanda tmpComanda = comandas.Where(x => x.GetCliente().GetNome() == nome).SingleOrDefault();
 
             throw new NullReferenceException("Comanda inexistente");
         }
@@ -56,7 +50,7 @@ namespace Tetris.Model
             }
             else
             {
-                throw new ArgumentNullException("Comanda não existente");
+                throw new NullReferenceException("Comanda não existente");
             }
         }
 
@@ -70,7 +64,7 @@ namespace Tetris.Model
                 }
             }
 
-            throw new ArgumentNullException("Não existe pedidos para o cliente ");
+            throw new NullReferenceException("Não existe pedidos para o cliente ");
         }
     }
 }

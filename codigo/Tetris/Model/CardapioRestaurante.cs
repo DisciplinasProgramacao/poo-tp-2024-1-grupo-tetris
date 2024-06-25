@@ -18,7 +18,7 @@ namespace Tetris.Model
             InicializarCardapio();
 
         }
-        public override void InicializarCardapio()
+        protected override void InicializarCardapio()
         {
            
             var comida = new (string Nome, double Valor)[]

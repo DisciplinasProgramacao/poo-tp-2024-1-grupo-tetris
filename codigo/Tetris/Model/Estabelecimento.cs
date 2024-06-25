@@ -26,5 +26,8 @@ namespace Tetris.Model
 
         public abstract Pedido BuscarPedidos(Cliente cliente);
 
+        public abstract double FecharConta(string nome);
+
+
     }
 }

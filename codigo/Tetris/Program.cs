@@ -26,7 +26,7 @@ namespace Tetris
 
         internal static Cliente VerificarCliente(string nome)
         {
-            return clientes.Where(x => x.GetNome() == nome).FirstOrDefault();
+            return clientes.Where(x => x.GetNome() == nome).SingleOrDefault();
         }
         internal static Cliente VerificarClienteCafeteria(string nome)
         {
@@ -71,7 +71,22 @@ namespace Tetris
             Cliente tmp;
             string nome;
 
-            
+            do
+            {
+                cabecalho();
+                Console.WriteLine("Qual menu deseja acessar? ");
+                Console.WriteLine("1 - Restaurante Xulambs");
+                Console.WriteLine("2 - Cafeteria Xulambs");
+                Console.WriteLine("0 - Sair");
+                int.TryParse(Console.ReadLine(), out escolha);
+
+            } while (escolha != 0);
+
+
+
+
+
+
 
             do
             {
@@ -163,7 +178,7 @@ namespace Tetris
                                 case 4:
                                     Console.WriteLine("Digite o nome do cliente para fechar o pedido: ");
                                     nome = Console.ReadLine();
-                                    double valor = ;
+                                    
                                     Console.WriteLine("Conta fechada e requisiçao encerrada! Total do pedido: \n"+xulambs.FecharConta(nome).ToString("0.00")+" R$");
                                     Console.ReadKey();
                                     break;
@@ -287,7 +302,7 @@ namespace Tetris
                                     tmp = VerificarClienteCafeteria(nome);
                                     if (tmp != null)
                                     {
-                                        Console.WriteLine("Comanda fechada com sucesso! total do pedido: " + cafeteria.FecharComanda(nome).ToString("0.00")+" R$");
+                                        Console.WriteLine("Comanda fechada com sucesso! total do pedido: " + cafeteria.FecharConta(nome).ToString("0.00")+" R$");
                                         Console.ReadKey();
                                     }
                                     else

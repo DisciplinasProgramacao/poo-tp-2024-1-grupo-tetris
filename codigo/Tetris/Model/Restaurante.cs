@@ -107,7 +107,7 @@ namespace Tetris.Model
         }
 
         
-        public double FecharConta(string nome)
+        public override double FecharConta(string nome)
         {
             Requisicao requisicao = null;
             foreach (var tmpRequisicao in requisicoesAtuais)
@@ -184,7 +184,7 @@ namespace Tetris.Model
             if (requisicao != null)
                 return requisicao;
             else
-                throw new ArgumentNullException("Requisicao não existe");
+                throw new NullReferenceException("Requisicao não existe");
              
         }
 
@@ -201,7 +201,7 @@ namespace Tetris.Model
             }
             else
             {
-                throw new ArgumentNullException("Requisicao não existente");
+                throw new NullReferenceException("Requisicao não existente");
             }
         }
 
@@ -223,7 +223,7 @@ namespace Tetris.Model
                 }
             }
 
-            throw new ArgumentNullException("Não existe pedidos para o cliente ");
+            throw new NullReferenceException("Não existe pedidos para o cliente ");
         }
 
         public override string ToString()
