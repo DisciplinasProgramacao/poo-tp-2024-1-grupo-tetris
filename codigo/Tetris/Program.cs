@@ -4,18 +4,13 @@ namespace Tetris
 {
     internal class Program
     {
-        static Restaurante xulambs = new Restaurante();
+        static Estabelecimento estabelecimento;
         static List<Cliente> clientes = new List<Cliente>();
-        static List<Cliente> clientesCafeteria = new List<Cliente>();
-        static Cafeteria cafeteria = new Cafeteria();
+        
 
-        internal static void ApresentarCardapioRestaurante()
+        internal static void ApresentarCardapio()
         {
-            xulambs.ApresentarCardapio();
-        }
-        internal static void ApresentarCardapioCafeteria()
-        {
-            cafeteria.ApresentarCardapio();
+            estabelecimento.ApresentarCardapio();
         }
         internal static void cabecalho()
         {
@@ -27,10 +22,6 @@ namespace Tetris
         internal static Cliente VerificarCliente(string nome)
         {
             return clientes.Where(x => x.GetNome() == nome).SingleOrDefault();
-        }
-        internal static Cliente VerificarClienteCafeteria(string nome)
-        {
-            return clientesCafeteria.Where(x => x.GetNome() == nome).FirstOrDefault();
         }
 
         internal static bool VerificarNome(string nome)
@@ -48,21 +39,6 @@ namespace Tetris
             
         }
 
-        internal static bool VerificarNomeCafeteria(string nome)
-        {
-            if (clientesCafeteria != null)
-            {
-                foreach (Cliente cliente in clientesCafeteria)
-                {
-                    if (cliente.GetNome() == nome)
-                        return false;
-                }
-                return true;
-            }
-            return true;
-
-        }
-
 
         internal static void Main(string[] args)
         {
@@ -70,21 +46,6 @@ namespace Tetris
             int opcao;
             Cliente tmp;
             string nome;
-
-            do
-            {
-                cabecalho();
-                Console.WriteLine("Qual menu deseja acessar? ");
-                Console.WriteLine("1 - Restaurante Xulambs");
-                Console.WriteLine("2 - Cafeteria Xulambs");
-                Console.WriteLine("0 - Sair");
-                int.TryParse(Console.ReadLine(), out escolha);
-
-            } while (escolha != 0);
-
-
-
-
 
 
 
@@ -101,6 +62,9 @@ namespace Tetris
                 {
                     case 1:
 
+                        estabelecimento = new Restaurante();
+                        Restaurante restaurante = (Restaurante)estabelecimento;
+                        clientes = new List<Cliente>();
                         do
                         {
                             Console.Clear();
@@ -151,7 +115,7 @@ namespace Tetris
                                     tmp = VerificarCliente(nome);
                                     if (tmp != null)
                                     {
-                                        Console.WriteLine(xulambs.BuscarPedidos(tmp));
+                                        Console.WriteLine(restaurante.BuscarPedidos(tmp));
                                         Console.ReadKey();
                                     }
                                     else
@@ -167,7 +131,7 @@ namespace Tetris
                                     {
                                         Console.WriteLine("\nDigite a quantidade de pessoas que irão sentar na mesa: ");
                                         int quantidade = int.Parse(Console.ReadLine());
-                                        xulambs.solicitarMesa(tmp, quantidade);
+                                        restaurante.solicitarMesa(tmp, quantidade);
                                         Console.WriteLine("\nRequisicao criada com sucesso");
                                         Console.ReadKey();
                                     }
@@ -178,8 +142,9 @@ namespace Tetris
                                 case 4:
                                     Console.WriteLine("Digite o nome do cliente para fechar o pedido: ");
                                     nome = Console.ReadLine();
-                                    
-                                    Console.WriteLine("Conta fechada e requisiçao encerrada! Total do pedido: \n"+xulambs.FecharConta(nome).ToString("0.00")+" R$");
+                                    tmp = VerificarCliente(nome);
+                                    Console.WriteLine("Conta fechada e requisiçao encerrada! Total do pedido: \n"+restaurante.FecharConta(nome).ToString("0.00")+" R$");
+                                    clientes.Remove(tmp);
                                     Console.ReadKey();
                                     break;
                                 case 5:
@@ -188,10 +153,10 @@ namespace Tetris
                                     tmp = VerificarCliente(nome);
                                     if (tmp != null)
                                     {
-                                        ApresentarCardapioRestaurante();
+                                        ApresentarCardapio();
                                         Console.WriteLine("Digite o id do produto a ser adicionado ao pedido");
                                         int idProduto = int.Parse(Console.ReadLine());
-                                        xulambs.incluirProduto(idProduto, nome);
+                                        restaurante.incluirProduto(idProduto, nome);
                                         Console.WriteLine("Produto inserido com sucesso!!");
                                         Console.ReadKey();
                                     }
@@ -210,7 +175,7 @@ namespace Tetris
 
                                 case 7:
                                     Console.WriteLine("Dados do Restaurante");
-                                    Console.WriteLine(xulambs.ToString());
+                                    Console.WriteLine(restaurante.ToString());
                                     Console.ReadKey();
                                     break;
                                     
@@ -223,6 +188,9 @@ namespace Tetris
                         break;
                     case 2:
 
+                        estabelecimento = new Cafeteria();
+                        Cafeteria cafeteria = (Cafeteria)estabelecimento;
+                        clientes = new List<Cliente>();
                         do
                         {
                             Console.Clear();
@@ -246,11 +214,11 @@ namespace Tetris
                                     {
                                         Console.WriteLine("Digite o nome do cliente: ");
                                         nome = Console.ReadLine();
-                                        nomeLivre = VerificarNomeCafeteria(nome);
+                                        nomeLivre = VerificarNome(nome);
                                         if (nomeLivre == true)
                                         {
                                             Cliente cliente1 = new Cliente(nome);
-                                            clientesCafeteria.Add(cliente1);
+                                            clientes.Add(cliente1);
                                             Console.WriteLine("Cliente adicionado com sucesso!");
                                             cafeteria.CriarComanda(cliente1);
                                             Console.ReadKey();
@@ -268,10 +236,10 @@ namespace Tetris
                                 case 2:
                                     Console.WriteLine("Digite o nome do cliente por favor: ");
                                     nome = Console.ReadLine();
-                                    tmp = VerificarClienteCafeteria(nome);
+                                    tmp = VerificarCliente(nome);
                                     if (tmp != null)
                                     {
-                                        ApresentarCardapioCafeteria();
+                                        ApresentarCardapio();
                                         Console.WriteLine("Digite o id do produto a ser adicionado ao pedido");
                                         int idProduto = int.Parse(Console.ReadLine());
                                         cafeteria.incluirProduto(idProduto, nome);
@@ -285,7 +253,7 @@ namespace Tetris
                                 case 3:
                                     Console.WriteLine("Digite o nome do Cliente: ");
                                     nome = Console.ReadLine();
-                                    tmp = VerificarClienteCafeteria(nome);
+                                    tmp = VerificarCliente(nome);
                                     if (tmp != null)
                                     {
                                         Console.WriteLine(cafeteria.BuscarPedidos(tmp));
@@ -299,7 +267,7 @@ namespace Tetris
                                 case 4:
                                     Console.WriteLine("Digite o nome do cliente para fechar a Comanda");
                                     nome = Console.ReadLine();
-                                    tmp = VerificarClienteCafeteria(nome);
+                                    tmp = VerificarCliente(nome);
                                     if (tmp != null)
                                     {
                                         Console.WriteLine("Comanda fechada com sucesso! total do pedido: " + cafeteria.FecharConta(nome).ToString("0.00")+" R$");
@@ -311,10 +279,7 @@ namespace Tetris
 
                                 case 5:
                                     Console.WriteLine("Lista de clientes atuais da cafeteria: ");
-                                    foreach(var cliente in clientesCafeteria)
-                                    {
-                                        Console.WriteLine(cliente.ToString());
-                                    }
+                                    clientes.ForEach(Console.WriteLine);
                                     Console.ReadKey();
                                     break;
 
