@@ -22,7 +22,7 @@ namespace Tetris.Model
         /// <summary>
         /// Inicializa o cardápio com alguns produtos.
         /// </summary>
-        public abstract void InicializarCardapio();
+        protected abstract void InicializarCardapio();
 
         /// <summary>
         /// Busca um produto pelo id no cardápio e retorna seus dados.
@@ -41,7 +41,7 @@ namespace Tetris.Model
                 return bebidas[idProduto];
             }
 
-            throw new ArgumentNullException("Produto inexistente"); // Produto não encontrado
+            throw new NullReferenceException("Produto inexistente"); // Produto não encontrado
         }
 
 

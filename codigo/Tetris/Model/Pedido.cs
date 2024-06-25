@@ -19,7 +19,6 @@ namespace Tetris.Model
 
         public List<Produto> GetPedido()
         {
-            Console.WriteLine("Valor atual do pedido "+CalcularValorTotal());
             return Itens;
         }
 
