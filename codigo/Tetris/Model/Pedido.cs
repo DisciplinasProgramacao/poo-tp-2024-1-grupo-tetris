@@ -36,7 +36,7 @@ namespace Tetris.Model
         public double CalcularValorTotal()
         {
             double valorTotal = 0;
-            foreach(var item in this.Itens)
+            foreach(Produto item in this.Itens)
             {
                 valorTotal += item.valor;
             }
@@ -57,7 +57,7 @@ namespace Tetris.Model
         public override string ToString()
         {
             string tmp ="";
-            foreach(var item in this.Itens)
+            foreach(Produto item in this.Itens)
             {
                 tmp+= item.ToString()+"\n ";
             }

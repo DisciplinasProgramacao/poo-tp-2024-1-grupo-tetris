@@ -21,7 +21,7 @@ namespace Tetris.Model
         public override void InicializarCardapio()
         {
            
-            var comida = new (string Nome, double Valor)[]
+            (string, double)[] comida = new (string Nome, double Valor)[]
             {
                 ("Moqueca de Palmito", 32.00),
                 ("Falafel Assado", 20.00),
@@ -31,7 +31,8 @@ namespace Tetris.Model
                 ("Caçarola de legumes", 22.00)
 
             };
-            var bebida = new (string Nome, double Valor)[]
+
+            (string, double)[] bebida = new (string Nome, double Valor)[]
             {
                 ("Agua", 3.00),
                 ("Copo de suco", 7.00),
@@ -42,13 +43,13 @@ namespace Tetris.Model
             };
 
 
-            foreach (var (nome, valor) in comida)
+            foreach ((string nome, double valor) in comida)
             {
                 Produto produto = new Produto(nome, valor);
                 comidas.Add(produto.GetId(), produto);
             }
 
-            foreach (var (nome, valor) in bebida)
+            foreach ((string nome, double valor) in bebida)
             {
                 Produto produto = new Produto(nome, valor);
                 bebidas.Add(produto.GetId(), produto);

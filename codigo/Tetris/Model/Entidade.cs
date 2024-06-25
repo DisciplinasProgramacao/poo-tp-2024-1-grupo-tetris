@@ -19,7 +19,7 @@ namespace Tetris.Model
 
         private int GerarId()
         {
-            var tipo = GetType();
+            Type tipo = GetType();
             if (!_proximosIds.ContainsKey(tipo))
             {
                 _proximosIds[tipo] = 1;

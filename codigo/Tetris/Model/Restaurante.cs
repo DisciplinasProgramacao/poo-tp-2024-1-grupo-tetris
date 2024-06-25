@@ -64,7 +64,7 @@ namespace Tetris.Model
         /// </summary>
         private void RodarFila()
         {
-            var atendidas = new List<Requisicao>();
+            List<Requisicao> atendidas = new List<Requisicao>();
             if(listaEspera.Any())
             {
                 foreach (Requisicao tmpRequisicao in listaEspera)
@@ -81,7 +81,7 @@ namespace Tetris.Model
                 }
             }
 
-            foreach(var tmpRequisicao in atendidas)
+            foreach(Requisicao tmpRequisicao in atendidas)
             {
                 listaEspera.Remove(tmpRequisicao);
             }
@@ -95,7 +95,7 @@ namespace Tetris.Model
         /// <returns>Mesa disponível encontrada ou null se não houver.</returns>
         private Mesa procurarMesaDisponivel(int qtdPessoas)
         {
-            foreach (var mesa in mesas)
+            foreach (Mesa mesa in mesas)
             {
                 if (mesa.VerificarDisponibilidade(qtdPessoas) == true)
                 {
@@ -110,7 +110,7 @@ namespace Tetris.Model
         public double FecharConta(string nome)
         {
             Requisicao requisicao = null;
-            foreach (var tmpRequisicao in requisicoesAtuais)
+            foreach (Requisicao tmpRequisicao in requisicoesAtuais)
             {
                 if (tmpRequisicao.GetCliente().GetNome() == nome)
                 {
@@ -144,7 +144,7 @@ namespace Tetris.Model
         public Requisicao RemoverListaEspera(int idRequisicao)
         {
             Requisicao requisicao = null;
-            foreach(var tmprequisicao in listaEspera)
+            foreach(Requisicao tmprequisicao in listaEspera)
             {
                 if(tmprequisicao.GetID() == idRequisicao)
                     requisicao = tmprequisicao;
@@ -163,7 +163,7 @@ namespace Tetris.Model
         public Requisicao buscaRequisicao(string nome)
         {
             Requisicao requisicao = null;
-            foreach (var tmpRequisicao in requisicoesAtuais)
+            foreach (Requisicao tmpRequisicao in requisicoesAtuais)
             {
                 if(tmpRequisicao.GetCliente().GetNome() == nome)
                 {
@@ -172,7 +172,7 @@ namespace Tetris.Model
             }
             if(requisicao == null)
             {
-                foreach(var tmpRequisicao in listaEspera)
+                foreach(Requisicao tmpRequisicao in listaEspera)
                 {
                     if (tmpRequisicao.GetCliente().GetNome() == nome)
                     {
@@ -207,7 +207,7 @@ namespace Tetris.Model
 
         public override Pedido BuscarPedidos(Cliente cliente)
         {
-            foreach(var tmp in requisicoesAtuais)
+            foreach(Requisicao tmp in requisicoesAtuais)
             {
                 if(tmp.GetCliente() == cliente) 
                 {
@@ -215,7 +215,7 @@ namespace Tetris.Model
                 }
             }
 
-            foreach (var tmp in listaEspera)
+            foreach (Requisicao tmp in listaEspera)
             {
                 if (tmp.GetCliente() == cliente)
                 {
@@ -230,19 +230,19 @@ namespace Tetris.Model
         {
             string mesa = "";
             
-            foreach(var tmpMesa in mesas)
+            foreach(Mesa tmpMesa in mesas)
             {
                 mesa+=tmpMesa.ToString();
             }
             string listasEspera = "";
-            foreach(var tmpRequisicao in listaEspera)
+            foreach(Requisicao tmpRequisicao in listaEspera)
             {
                 listasEspera+=tmpRequisicao.ToString();
             }
 
             string listasAtuais = "";
 
-            foreach (var tmpRequisicao in listaEspera)
+            foreach (Requisicao tmpRequisicao in listaEspera)
             {
                 listasAtuais += tmpRequisicao.ToString();
             }

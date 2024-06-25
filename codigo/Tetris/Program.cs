@@ -296,7 +296,7 @@ namespace Tetris
 
                                 case 5:
                                     Console.WriteLine("Lista de clientes atuais da cafeteria: ");
-                                    foreach(var cliente in clientesCafeteria)
+                                    foreach(Cliente cliente in clientesCafeteria)
                                     {
                                         Console.WriteLine(cliente.ToString());
                                     }

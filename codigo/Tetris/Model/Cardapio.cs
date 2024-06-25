@@ -54,12 +54,12 @@ namespace Tetris.Model
         {
             StringBuilder cardapio = new StringBuilder();
             cardapio.AppendLine("----- Cardápio -----");
-            foreach (var item in comidas.Values) 
+            foreach (Produto item in comidas.Values) 
             {
                 cardapio.AppendLine(item.GetId() + " - " + item.ToString());
             }
 
-            foreach (var item in bebidas.Values)
+            foreach (Produto item in bebidas.Values)
             {
                 cardapio.AppendLine(item.GetId() + " - " + item.ToString());
             }

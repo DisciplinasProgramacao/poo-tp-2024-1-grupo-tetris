@@ -34,7 +34,7 @@ namespace Tetris.Model
 
         private Comanda BuscaComanda(string nome)
         {
-            foreach(var tmp in comandas)
+            foreach(Comanda tmp in comandas)
             {
                 if(tmp.GetCliente().GetNome() == nome)
                 {
@@ -62,7 +62,7 @@ namespace Tetris.Model
 
         public override Pedido BuscarPedidos(Cliente cliente)
         {
-            foreach (var tmp in comandas)
+            foreach (Comanda tmp in comandas)
             {
                 if (tmp.GetCliente() == cliente)
                 {
