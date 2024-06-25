@@ -23,7 +23,7 @@ namespace Tetris.Model
 
         public override string ToString()
         {
-            return "Cliente nº " + Id + ": " + nome;
+            return "\n Cliente nº " + Id + ": " + nome;
         }
     }
 }

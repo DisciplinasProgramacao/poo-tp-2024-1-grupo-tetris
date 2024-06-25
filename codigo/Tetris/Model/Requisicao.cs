@@ -98,7 +98,7 @@ namespace Tetris.Model
 
         public override string ToString()
         {
-            return "Nome: " + cliente.GetNome() + " ID: " + cliente.GetId() + " total do pedido: " + pedido.CalcularValorTotal();
+            return "\n Nome: " + cliente.GetNome() + " ID: " + cliente.GetId() + " total do pedido: " + pedido.CalcularValorTotal()+ " Mesa ocupada: "+mesa.GetId();
         }
 
 

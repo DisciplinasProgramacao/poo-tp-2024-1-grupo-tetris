@@ -15,7 +15,7 @@ namespace Tetris.Model
         /// </summary>
 
         private int capacidade;
-        public bool IsOcupada {  get; private set; }
+        private bool IsOcupada;
 
         /// <summary>
         /// Construtor da classe Mesa, inicializando a capacidade e o estado de ocupação.
@@ -57,6 +57,11 @@ namespace Tetris.Model
                 return true;
             else
                 return false;
+        }
+
+        public override string ToString()
+        {
+            return "\n Id mesa: " + Id + " capacidade " + capacidade + " lugares" + " ocupada: " + IsOcupada;
         }
     }
 }

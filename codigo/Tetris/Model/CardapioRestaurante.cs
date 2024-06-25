@@ -20,6 +20,7 @@ namespace Tetris.Model
         }
         public override void InicializarCardapio()
         {
+           
             var comida = new (string Nome, double Valor)[]
             {
                 ("Moqueca de Palmito", 32.00),

@@ -21,6 +21,10 @@ namespace Tetris.Model
         {
             return cardapio.BuscarProduto(idProduto);
         }
-        
+
+        public abstract Produto incluirProduto(int idProduto, string nome);
+
+        public abstract Pedido BuscarPedidos(Cliente cliente);
+
     }
 }

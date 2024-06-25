@@ -52,10 +52,7 @@ namespace Tetris.Model
         {
             Requisicao requisicao = new Requisicao(cliente, qtdPessoas);
             listaEspera.Add(requisicao);
-            if(listaEspera.Count != 0)
-            {
-                RodarFila();
-            }
+            RodarFila();
             
             return requisicao;
         }
@@ -193,7 +190,7 @@ namespace Tetris.Model
 
 
 
-        public Produto incluirProduto(int idProduto, string nome)
+        public override Produto incluirProduto(int idProduto, string nome)
         {
             Produto produto = cardapio.BuscarProduto(idProduto);
             Requisicao requisicao = buscaRequisicao(nome);
@@ -208,7 +205,7 @@ namespace Tetris.Model
             }
         }
 
-        public Pedido BuscarPedidos(Cliente cliente)
+        public override Pedido BuscarPedidos(Cliente cliente)
         {
             foreach(var tmp in requisicoesAtuais)
             {
@@ -229,6 +226,29 @@ namespace Tetris.Model
             throw new ArgumentNullException("Não existe pedidos para o cliente ");
         }
 
+        public override string ToString()
+        {
+            string mesa = "";
+            
+            foreach(var tmpMesa in mesas)
+            {
+                mesa+=tmpMesa.ToString();
+            }
+            string listasEspera = "";
+            foreach(var tmpRequisicao in listaEspera)
+            {
+                listasEspera+=tmpRequisicao.ToString();
+            }
 
+            string listasAtuais = "";
+
+            foreach (var tmpRequisicao in listaEspera)
+            {
+                listasAtuais += tmpRequisicao.ToString();
+            }
+
+            string final = "\n" + mesa + "\n" + listasAtuais + "\n" + listasEspera;
+            return final;
+        }
     }
 }
