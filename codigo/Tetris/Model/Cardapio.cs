@@ -41,7 +41,7 @@ namespace Tetris.Model
                 return bebidas[idProduto];
             }
 
-            throw new NullReferenceException("Produto inexistente"); // Produto não encontrado
+            throw new NullReferenceException(); // Produto não encontrado
         }
 
 

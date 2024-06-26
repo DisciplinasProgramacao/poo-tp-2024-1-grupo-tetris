@@ -4,9 +4,17 @@ namespace Tetris
 {
     internal class Program
     {
+        #region Atributos
         static Estabelecimento estabelecimento;
         static List<Cliente> clientes = new List<Cliente>();
+        static string tentativa;
+        static int escolha;
+        static int opcao;
+        static Cliente tmp;
+        static string nome;
+        static bool entradaValida;
 
+        #endregion
 
         internal static void ApresentarCardapio()
         {
@@ -17,6 +25,132 @@ namespace Tetris
             Console.Clear();
             Console.WriteLine("Projeto: OO Comidinhas Veganas");
             Console.WriteLine("==============================");
+        }
+
+        
+        internal static void AdicionarCliente()
+        {
+            do
+            {
+                Console.WriteLine("Digite o nome do cliente: ");
+                nome = Console.ReadLine();
+                entradaValida = VerificarNome(nome);
+
+                if (entradaValida == true && !String.IsNullOrWhiteSpace(nome))
+                {
+                    Cliente cliente1 = new Cliente(nome);
+                    clientes.Add(cliente1);
+                    Console.WriteLine("Cliente adicionado com sucesso!!");
+                    Console.ReadKey();
+                }
+                else
+                {
+                    Console.WriteLine("Nome invalido, tente outro");
+                    entradaValida = false;
+                    Console.ReadKey();
+                }
+
+            }
+            while (entradaValida == false);
+        }
+
+        internal static void AdicionarCliente(int quantidade)
+        {
+            do
+            {
+                Console.WriteLine("Digite o nome do cliente: ");
+                nome = Console.ReadLine();
+                entradaValida = VerificarNome(nome);
+
+                if (entradaValida == true && !String.IsNullOrWhiteSpace(nome))
+                {
+                    Cliente cliente1 = new Cliente(nome);
+                    clientes.Add(cliente1);
+                    estabelecimento.CriarRequisicao(cliente1, quantidade);
+                    Console.WriteLine("Cliente adicionado com sucesso!!");
+                    Console.ReadKey();
+                }
+                else
+                {
+                    Console.WriteLine("Nome invalido, tente outro");
+                    entradaValida = false;
+                    Console.ReadKey();
+                }
+
+            }
+            while (entradaValida == false);
+        }
+        internal static void VerificarPedidos()
+        {
+            do
+            {
+
+                Console.WriteLine("Digite o nome do Cliente: ");
+                nome = Console.ReadLine();
+                tmp = VerificarCliente(nome);
+                try
+                {
+                    if (tmp != null)
+                    {
+                        Console.WriteLine("Pedidos atuais do cliente");
+                        Console.WriteLine(estabelecimento.BuscarPedidos(tmp));
+                        entradaValida = true;
+                        Console.ReadKey();
+                    }
+                    else
+                    {
+                        Console.WriteLine("Cliente inexistente, favor crie um cliente!!");
+                        Console.ReadKey();
+                        break;
+                    }
+                }
+                catch (NullReferenceException)
+                {
+                    Console.WriteLine("Não existem pedidos para esse cliente, Adicione um pedido primeiro!!");
+                    entradaValida = false;
+                    Console.ReadKey();
+                    break;
+                }
+
+
+            } while (entradaValida == false);
+            
+        }
+
+        internal static void FecharPedidos()
+        {
+            do
+            {
+                Console.WriteLine("Digite o nome do cliente para fechar o pedido: ");
+                nome = Console.ReadLine();
+                tmp = VerificarCliente(nome);
+
+                if (tmp != null)
+                {
+                    try
+                    {
+                        Console.WriteLine("Conta fechada e requisiçao encerrada! Total do pedido: \n" + estabelecimento.FecharConta(nome).ToString("0.00") + " R$");
+                        clientes.Remove(tmp);
+                        entradaValida = true;
+                        Console.ReadKey();
+                    }
+                    catch (NullReferenceException)
+                    {
+                        Console.WriteLine("Esse cliente não tem uma requisicão ainda por favor crie uma!");
+                        Console.ReadKey();
+                        break;
+
+                    }
+
+                }
+                else
+                {
+                    Console.WriteLine("Cliente inexistente, primeiro adicione um cliente!");
+                    entradaValida = false;
+                    Console.ReadKey();
+                    break;
+                }
+            } while (entradaValida == false);
         }
 
         internal static Cliente VerificarCliente(string nome)
@@ -46,13 +180,7 @@ namespace Tetris
 
         internal static void Main(string[] args)
         {
-            string tentativa;
-            int escolha;
-            int opcao;
-            Cliente tmp;
-            string nome;
-            bool entradaValida;
-
+            
             do
             {
                 cabecalho();
@@ -64,10 +192,11 @@ namespace Tetris
 
                 switch (escolha)
                 {
+                    #region Menu Restaurante
                     case 1:
 
                         estabelecimento = new Restaurante();
-                        Restaurante restaurante = (Restaurante)estabelecimento;
+                        //Restaurante restaurante = (Restaurante)estabelecimento;
                         clientes = new List<Cliente>();
                         do
                         {
@@ -80,7 +209,7 @@ namespace Tetris
                             Console.WriteLine("4 - Fechar Requisição");
                             Console.WriteLine("5 - Adicionar Pedido à Requisição");
                             Console.WriteLine("6 - Exibir lista de clientes atuais");
-                            Console.WriteLine("7 - Exibir filas de espera e atendidas no momento");
+                            Console.WriteLine("7 - Exibir mesas ocupadas/livres e clientes na fila de espera");
                             Console.WriteLine("0 - Sair");
                             Console.Write("Digite sua opção: ");
                             int.TryParse(Console.ReadLine(), out opcao);
@@ -88,66 +217,25 @@ namespace Tetris
 
                             switch (opcao)
                             {
-                                case 1:
+                                #region Adicionar Cliente
+                                case 1: 
 
-                                    do
-                                    {
-                                        Console.WriteLine("Digite o nome do cliente: ");
-                                        nome = Console.ReadLine();
-                                        entradaValida = VerificarNome(nome);
-
-                                        if (entradaValida == true && !String.IsNullOrWhiteSpace(nome))
-                                        {
-                                            Cliente cliente1 = new Cliente(nome);
-                                            clientes.Add(cliente1);
-                                            Console.WriteLine("Cliente adicionado com sucesso!!");
-                                            Console.ReadKey();
-                                        }
-                                        else
-                                        {
-                                            Console.WriteLine("Nome invalido, tente outro");
-                                            Console.ReadKey();
-                                        }
-
-                                    }
-                                    while (entradaValida == false);
+                                    AdicionarCliente();
                                     break;
+                                #endregion
+
+                                #region Verificar Pedidos
                                 case 2:
-                                    do
-                                    {
-
-                                        Console.WriteLine("Digite o nome do Cliente: ");
-                                        nome = Console.ReadLine();
-                                        tmp = VerificarCliente(nome);
-                                        try
-                                        {
-                                            if (tmp != null)
-                                            {
-                                                Console.WriteLine(restaurante.BuscarPedidos(tmp));
-                                                entradaValida = true;
-                                                Console.ReadKey();
-                                            }
-                                            else
-                                            {
-                                                Console.WriteLine("Cliente inexistente, favor crie um cliente!!");
-                                                Console.ReadKey();
-                                                break;
-                                            }
-                                        }
-                                        catch (NullReferenceException)
-                                        {
-                                            Console.WriteLine("Não existem pedidos para esse cliente, Adicione um pedido primeiro!!");
-                                            entradaValida = false;
-                                            break;
-                                        }
-
-
-                                    } while (entradaValida == false);
+                                
+                                    VerificarPedidos();
                                     break;
-                                case 3:
+                                #endregion
+
+                                #region Criar Requisicao
+                                case 3: //Criar Requisição de mesa
                                     do
                                     {
-                                        //Criar requisição
+                                        
 
                                         Console.WriteLine("Digite o nome do cliente a ser criado a requisicao");
                                         Console.WriteLine("Lista de Clientes atuais: ");
@@ -157,10 +245,11 @@ namespace Tetris
 
                                         if (tmp != null)
                                         {
-                                            if (restaurante.TemRequisicao(tmp) == true)
+                                            if (estabelecimento.TemRequisicao(tmp) == true)
                                             {
                                                 Console.WriteLine("O cliente já tem uma requisição!");
                                                 entradaValida = true;
+                                                Console.ReadKey();
 
                                             }
                                             else
@@ -176,7 +265,8 @@ namespace Tetris
                                                     }
 
                                                 } while (quantidade <= 0 || quantidade > 8);
-                                                restaurante.CriarRequisicao(tmp, quantidade);
+                                                estabelecimento.CriarRequisicao(tmp, quantidade);
+                                                Console.WriteLine("Requisicao para {0} pessoas criada com sucesso",quantidade);
                                                 entradaValida = true;
                                                 Console.ReadKey();
                                             }
@@ -193,69 +283,89 @@ namespace Tetris
                                     } while (entradaValida == false);
 
                                     break;
+                                #endregion
+
+                                #region Fechar Pedido
                                 case 4:
 
-                                    do
-                                    {
-                                        Console.WriteLine("Digite o nome do cliente para fechar o pedido: ");
-                                        nome = Console.ReadLine();
-                                        tmp = VerificarCliente(nome);
-
-                                        if (tmp != null)
-                                        {
-                                            try
-                                            {
-                                                Console.WriteLine("Conta fechada e requisiçao encerrada! Total do pedido: \n" + restaurante.FecharConta(nome).ToString("0.00") + " R$");
-                                                clientes.Remove(tmp);
-                                                entradaValida = true;
-                                                Console.ReadKey();
-                                            }
-                                            catch (NullReferenceException)
-                                            {
-                                                Console.WriteLine("Esse cliente não tem uma requisicão ainda por favor crie uma!");
-                                                break;
-
-                                            }
-
-                                        }
-                                        else
-                                        {
-                                            Console.WriteLine("Cliente inexistente, primeiro adicione um cliente!");
-                                            entradaValida = false;
-                                            break;
-                                        }
-                                    } while (entradaValida == false);
-
+                                    FecharPedidos();
                                     break;
+
+                                #endregion
+
+                                #region Adicionar Pedidos
                                 case 5:
                                     Console.WriteLine("Digite o nome do cliente por favor: ");
                                     nome = Console.ReadLine();
                                     tmp = VerificarCliente(nome);
-                                    if (tmp == null)
-                                    {
-                                        Console.WriteLine("Cliente inexistente");
-                                        break;
-                                    }
-
+                                    
                                     do
                                     {
-                                        try
-                                        {
                                             if (tmp != null)
                                             {
                                                 try
                                                 {
-                                                    ApresentarCardapio();
-                                                    Console.WriteLine("Digite o id do produto a ser adicionado ao pedido");
-                                                    int idProduto = int.Parse(Console.ReadLine());
-                                                    restaurante.incluirProduto(idProduto, nome);
-                                                    Console.WriteLine("Produto inserido com sucesso!!");
-                                                    entradaValida = true;
-                                                    Console.ReadKey();
+                                                    do
+                                                    {
+                                                        Console.Clear();
+                                                        ApresentarCardapio();
+                                                        Console.WriteLine("Digite o id do produto a ser adicionado ao pedido");
+                                                        int idProduto = int.Parse(Console.ReadLine());
+                                                        estabelecimento.incluirProduto(idProduto, nome);
+                                                        Console.WriteLine("Produto inserido com sucesso!!");
+                                                        entradaValida = true;
+                                                        Console.WriteLine("Deseja adicionar mais um produto? (s/n)");
+                                                        tentativa = Console.ReadLine();
+                                                        if (tentativa == "s")
+                                                        {
+                                                            continue;
+                                                        }
+                                                        else if (tentativa == "n")
+                                                        {
+                                                            break;
+                                                        }
+                                                        else
+                                                        {
+                                                            Console.WriteLine("Opcao inválida, tente novamente");
+                                                            entradaValida = false;
+                                                            continue;
+                                                        }
+                                                        
+                                                    } while (true);
+                                                    
                                                 }
                                                 catch (NullReferenceException ex)
                                                 {
-                                                    Console.WriteLine(ex.Message);
+                                                    Console.WriteLine("O cliente não tem uma requisiçao para adicionar o pedido, deseja criar uma? (s/n)");
+                                                    tentativa = Console.ReadLine();
+                                                    if (tentativa == "s")
+                                                    {
+                                                        int quantidade;
+                                                        do
+                                                        {
+                                                            Console.WriteLine("Para quantas pessoas será a mesa? (entre 1 e 8)");
+                                                            quantidade = int.Parse(Console.ReadLine());
+
+                                                            if (quantidade <= 0 || quantidade >= 8)
+                                                            {
+                                                                Console.WriteLine("Quantidade invalida!");
+                                                            }
+
+                                                        } while (quantidade <= 0 || quantidade >= 8);
+
+                                                        estabelecimento.CriarRequisicao(tmp, quantidade);
+                                                        entradaValida = true;
+
+                                                    }
+                                                    else if (tentativa == "n")
+                                                    {
+                                                        break;
+                                                    }
+                                                    else
+                                                    {
+                                                        Console.WriteLine("Opcao inválida, tente novamente");
+                                                        entradaValida = false;
+                                                    }
                                                     Console.ReadKey();
                                                     break;
                                                 }
@@ -289,7 +399,7 @@ namespace Tetris
 
                                                     } while (quantidade <= 0 || quantidade >= 8);
 
-                                                    restaurante.CriarRequisicao(tmp, quantidade);
+                                                    estabelecimento.CriarRequisicao(tmp, quantidade);
                                                     entradaValida = true;
 
                                                 }
@@ -306,47 +416,12 @@ namespace Tetris
 
                                             }
 
-                                        }
-                                        catch (NullReferenceException)
-                                        {
-                                            Console.WriteLine("Não existe uma requisição para esse cliente! Deseja criar uma?");
-                                            tentativa = Console.ReadLine().ToLower();
-                                            if (tentativa == "s")
-                                            {
-                                                int quantidade;
-                                                do
-                                                {
-                                                    Console.WriteLine("Para quantas pessoas será a mesa? (entre 1 e 8)");
-                                                    quantidade = int.Parse(Console.ReadLine());
-
-                                                    if (quantidade <= 0 || quantidade >= 8)
-                                                    {
-                                                        Console.WriteLine("Quantidade invalida!");
-                                                    }
-
-                                                } while (quantidade <= 0 || quantidade >= 8);
-
-                                                restaurante.CriarRequisicao(tmp, quantidade);
-                                                entradaValida = true;
-                                            }
-                                            else if (tentativa == "n")
-                                            {
-                                                break;
-                                            }
-                                            else
-                                            {
-                                                Console.WriteLine("Opcao inválida tente novamente");
-                                                entradaValida = false;
-                                            }
-
-
-                                        }
-
-
                                     } while (entradaValida == false);
-
+                                    
 
                                     break;
+                                    #endregion
+
                                 case 6:
                                     Console.WriteLine("Lista de clientes atuais do restaurante");
                                     foreach (Cliente cliente in clientes)
@@ -357,8 +432,8 @@ namespace Tetris
                                     break;
 
                                 case 7:
-                                    Console.WriteLine("Dados do Restaurante");
-                                    Console.WriteLine(restaurante.ToString());
+                                    Console.WriteLine("Mesas Ocupadas e Clientes em fila de espera atualmente");
+                                    Console.WriteLine(estabelecimento.ToString());
                                     Console.ReadKey();
                                     break;
 
@@ -369,10 +444,11 @@ namespace Tetris
                             }
                         } while (opcao != 0);
                         break;
+
+#endregion
                     case 2:
 
                         estabelecimento = new Cafeteria();
-                        Cafeteria cafeteria = (Cafeteria)estabelecimento;
                         clientes = new List<Cliente>();
                         do
                         {
@@ -380,9 +456,9 @@ namespace Tetris
                             Console.WriteLine("Menu da Cafeteria");
                             Console.WriteLine("==============================");
                             Console.WriteLine("1 - Receber Cliente");
-                            Console.WriteLine("2 - Adicionar Pedido à Comanda");
-                            Console.WriteLine("3 - Verificar pedidos do cliente");
-                            Console.WriteLine("4 - Fechar comanda");
+                            Console.WriteLine("2 - Verificar pedidos do cliente");
+                            Console.WriteLine("3 - Fechar pedido do cliente");
+                            Console.WriteLine("4 - Adicionar pedido a comanda");
                             Console.WriteLine("5 - Lista de clientes");
                             Console.WriteLine("0 - Sair");
                             Console.Write("Digite sua opção: ");
@@ -392,72 +468,116 @@ namespace Tetris
                             switch (opcao)
                             {
                                 case 1:
-                                    bool nomeLivre = true;
-                                    do
-                                    {
-                                        Console.WriteLine("Digite o nome do cliente: ");
-                                        nome = Console.ReadLine();
-                                        nomeLivre = VerificarNome(nome);
-                                        if (nomeLivre == true && !String.IsNullOrWhiteSpace(nome))
-                                        {
-                                            Cliente cliente1 = new Cliente(nome);
-                                            clientes.Add(cliente1);
-                                            Console.WriteLine("Cliente adicionado com sucesso!");
-                                            cafeteria.CriarRequisicao(cliente1, 1);
-                                            Console.ReadKey();
-                                        }
-                                        else
-                                        {
-                                            Console.WriteLine("Nome invalido, tente outro");
-                                            Console.ReadKey();
-                                        }
-
-                                    }
-                                    while (nomeLivre == false);
+                                    AdicionarCliente(1);
                                     break;
 
                                 case 2:
-                                    Console.WriteLine("Digite o nome do cliente por favor: ");
-                                    nome = Console.ReadLine();
-                                    tmp = VerificarCliente(nome);
-                                    if (tmp != null)
-                                    {
-                                        ApresentarCardapio();
-                                        Console.WriteLine("Digite o id do produto a ser adicionado ao pedido");
-                                        int idProduto = int.Parse(Console.ReadLine());
-                                        cafeteria.incluirProduto(idProduto, nome);
-                                        Console.WriteLine("Produto inserido com sucesso!!");
-                                        Console.ReadKey();
-                                    }
-                                    else
-                                        throw new ArgumentNullException("Cliente não existente!");
+                                    VerificarPedidos();
                                     break;
 
                                 case 3:
-                                    Console.WriteLine("Digite o nome do Cliente: ");
-                                    nome = Console.ReadLine();
-                                    tmp = VerificarCliente(nome);
-                                    if (tmp != null)
-                                    {
-                                        Console.WriteLine(cafeteria.BuscarPedidos(tmp));
-                                        Console.ReadKey();
-                                    }
-                                    else
-                                        throw new ArgumentNullException("Cliente inexistente");
+                                    FecharPedidos();
 
                                     break;
 
                                 case 4:
-                                    Console.WriteLine("Digite o nome do cliente para fechar a Comanda");
+                                    Console.WriteLine("Digite o nome do cliente por favor: ");
                                     nome = Console.ReadLine();
                                     tmp = VerificarCliente(nome);
-                                    if (tmp != null)
+
+                                    do
                                     {
-                                        Console.WriteLine("Comanda fechada com sucesso! total do pedido: " + cafeteria.FecharConta(nome).ToString("0.00") + " R$");
-                                        Console.ReadKey();
-                                    }
-                                    else
-                                        throw new ArgumentNullException("Cliente inexistente");
+                                        if (tmp != null)
+                                        {
+                                            try
+                                            {
+                                                do
+                                                {
+                                                    Console.Clear();
+                                                    ApresentarCardapio();
+                                                    Console.WriteLine("Digite o id do produto a ser adicionado ao pedido");
+                                                    int idProduto = int.Parse(Console.ReadLine());
+                                                    estabelecimento.incluirProduto(idProduto, nome);
+                                                    Console.WriteLine("Produto inserido com sucesso!!");
+                                                    entradaValida = true;
+                                                    Console.WriteLine("Deseja adicionar mais um produto? (s/n)");
+                                                    tentativa = Console.ReadLine();
+                                                    if (tentativa == "s")
+                                                    {
+                                                        continue;
+                                                    }
+                                                    else if (tentativa == "n")
+                                                    {
+                                                        break;
+                                                    }
+                                                    else
+                                                    {
+                                                        Console.WriteLine("Opcao inválida, tente novamente");
+                                                        entradaValida = false;
+                                                        continue;
+                                                    }
+
+                                                } while (true);
+
+                                            }
+                                            catch (NullReferenceException ex)
+                                            {
+                                                Console.WriteLine("O cliente não tem uma requisiçao para adicionar o pedido, deseja criar uma? (s/n)");
+                                                tentativa = Console.ReadLine();
+                                                if (tentativa == "s")
+                                                {
+
+                                                    estabelecimento.CriarRequisicao(tmp, 1);
+                                                    entradaValida = true;
+
+                                                }
+                                                else if (tentativa == "n")
+                                                {
+                                                    break;
+                                                }
+                                                else
+                                                {
+                                                    Console.WriteLine("Opcao inválida, tente novamente");
+                                                    entradaValida = false;
+                                                }
+                                                Console.ReadKey();
+                                                break;
+                                            }
+                                            catch (Exception ex)
+                                            {
+                                                Console.WriteLine("Ocorreu um erro");
+                                                Console.ReadKey();
+                                                break;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine("Cliente inexistente! Deseja criar um(a) com esse nome?(s/n)");
+                                            tentativa = Console.ReadLine().ToLower();
+
+                                            if (tentativa == "s")
+                                            {
+                                                tmp = new Cliente(nome);
+                                                clientes.Add(tmp);
+                                                Console.WriteLine("Cliente criado com sucesso!");
+                                                estabelecimento.CriarRequisicao(tmp, 1);
+                                                entradaValida = true;
+
+                                            }
+                                            else if (tentativa == "n")
+                                            {
+                                                break;
+                                            }
+                                            else
+                                            {
+                                                Console.WriteLine("Opcao inválida, tente novamente");
+                                                entradaValida = false;
+                                            }
+
+
+                                        }
+
+                                    } while (entradaValida == false);
                                     break;
 
                                 case 5:

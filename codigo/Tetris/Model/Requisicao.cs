@@ -95,9 +95,9 @@ namespace Tetris.Model
         public override string ToString()
         {
             if (mesa != null)
-                return cliente.ToString() + " | " + pedido.CalcularValorTotal() + " | Mesa ocupada: " + mesa.GetId();
+                return cliente.ToString() + " | Total do pedido: " + pedido.CalcularValorTotal() + " | Mesa ocupada: mesa " + mesa.GetId();
             else
-                return cliente.ToString() + " | " + pedido.CalcularValorTotal();
+                return cliente.ToString() + " | Total do pedido: " + pedido.CalcularValorTotal();
         }
 
 

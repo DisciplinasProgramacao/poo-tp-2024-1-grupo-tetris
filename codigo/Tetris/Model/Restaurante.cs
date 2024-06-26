@@ -122,7 +122,7 @@ namespace Tetris.Model
                 return requisicao.fecharConta();
             }
             else
-                throw new NullReferenceException("Requisicao inexistente.");
+                throw new NullReferenceException();
         }
         /// <summary>
         /// Fecha a requisição, removendo a requisição da lista de Requisicoes sendo atendidas no momento e gera o horario de saída da requisiçao.
@@ -146,7 +146,7 @@ namespace Tetris.Model
                 return requisicao;
             }
             else
-                throw new NullReferenceException("Requisicao inexistente");
+                throw new NullReferenceException();
         }
 
         
@@ -168,7 +168,7 @@ namespace Tetris.Model
             if (requisicao != null)
                 return requisicao;
             else
-                throw new NullReferenceException("Requisicao não existe");
+                throw new NullReferenceException();
         }
 
 
@@ -184,7 +184,7 @@ namespace Tetris.Model
             }
             else
             {
-                throw new NullReferenceException("Requisicao não existente");
+                throw new NullReferenceException();
             }
         }
 
@@ -197,7 +197,7 @@ namespace Tetris.Model
             }
             if (pedido == null)
             {
-                throw new NullReferenceException("Pedido não encontrado para o cliente especificado.");
+                throw new NullReferenceException();
             }
             else
                 return pedido;
@@ -211,24 +211,27 @@ namespace Tetris.Model
             {
                 mesa+=tmpMesa.ToString();
             }
+
+            string listasAtuais = "";
+
+            foreach (Requisicao tmpRequisicao in requisicoesAtuais)
+            {
+                listasAtuais += tmpRequisicao.ToString();
+            }
+
+
             string listasEspera = "";
             foreach(Requisicao tmpRequisicao in listaEspera)
             {
                 listasEspera+=tmpRequisicao.ToString();
             }
 
-            string listasAtuais = "";
-
-            foreach (Requisicao tmpRequisicao in listaEspera)
-            {
-                listasAtuais += tmpRequisicao.ToString();
-            }
-
+            
             string final = "\n" + mesa + "\n" + listasAtuais + "\n" + listasEspera;
             return final;
         }
 
-        public bool TemRequisicao(Cliente cliente)
+        public override bool TemRequisicao(Cliente cliente)
         {
             foreach(Requisicao requisicao in requisicoesAtuais)
             {

@@ -19,7 +19,7 @@ namespace Tetris.Model
         {
             if (valor < 0)
             {
-                throw new ArgumentException(nameof(valor), "O valor não pode ser menor que zero");
+                throw new ArgumentException(nameof(valor));
             }
 
             this.nome = nome;

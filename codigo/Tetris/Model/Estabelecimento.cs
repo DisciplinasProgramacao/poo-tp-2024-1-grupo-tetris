@@ -33,6 +33,8 @@ namespace Tetris.Model
 
         public abstract double FecharConta(string nome);
 
+        public abstract bool TemRequisicao(Cliente Cliente);
+
 
     }
 }

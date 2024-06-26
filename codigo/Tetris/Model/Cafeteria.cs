@@ -53,7 +53,7 @@ namespace Tetris.Model
             }
             else
             {
-                throw new NullReferenceException("Comanda não existente");
+                throw new NullReferenceException();
             }
         }
 
@@ -63,10 +63,23 @@ namespace Tetris.Model
             
             if (pedido == null)
             {
-                throw new NullReferenceException("Pedido não encontrado para o cliente especificado.");
+                throw new NullReferenceException();
             }
             else
                 return pedido;
+        }
+
+        public override bool TemRequisicao(Cliente cliente)
+        {
+            foreach (Requisicao requisicao in requisicoesAtuais)
+            {
+                if (requisicao.GetCliente() == cliente)
+                {
+                    return true;
+                }
+            }
+            
+            return false;
         }
     }
 }
