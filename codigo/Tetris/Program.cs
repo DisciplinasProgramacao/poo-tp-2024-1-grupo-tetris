@@ -185,8 +185,8 @@ namespace Tetris
             {
                 cabecalho();
                 Console.WriteLine("Qual menu deseja acessar? ");
-                Console.WriteLine("1 - Restaurante Xulambs");
-                Console.WriteLine("2 - Cafeteria Xulambs");
+                Console.WriteLine("1 - Restaurante OO Comidinhas Veganas");
+                Console.WriteLine("2 - Cafeteria OO Comidinhas Veganas");
                 Console.WriteLine("0 - Sair");
                 int.TryParse(Console.ReadLine(), out escolha);
 
@@ -458,7 +458,7 @@ namespace Tetris
                             Console.WriteLine("1 - Receber Cliente");
                             Console.WriteLine("2 - Verificar pedidos do cliente");
                             Console.WriteLine("3 - Fechar pedido do cliente");
-                            Console.WriteLine("4 - Adicionar pedido a comanda");
+                            Console.WriteLine("4 - Adicionar pedido");
                             Console.WriteLine("5 - Lista de clientes");
                             Console.WriteLine("0 - Sair");
                             Console.Write("Digite sua opção: ");
