@@ -98,7 +98,7 @@ namespace Tetris
                                         Console.WriteLine("Digite o nome do cliente: ");
                                         nome = Console.ReadLine();
                                         entradaValida = VerificarNome(nome);
-                                        if (entradaValida == true)
+                                        if (entradaValida == true && !String.IsNullOrWhiteSpace(nome))
                                         {
                                             Cliente cliente1 = new Cliente(nome);
                                             clientes.Add(cliente1);
@@ -132,6 +132,7 @@ namespace Tetris
                                             else
                                             {
                                                 Console.WriteLine("Cliente inexistente, favor crie um cliente!!");
+                                                Console.ReadKey();
                                                 break;
                                             }
                                         }
@@ -232,9 +233,9 @@ namespace Tetris
                                     Console.WriteLine("Digite o nome do cliente por favor: ");
                                     nome = Console.ReadLine();
                                     tmp = VerificarCliente(nome);
-                                    if (VerificarNome(nome) == false)
+                                    if (tmp == null)
                                     {
-                                        Console.WriteLine("Nome invalido!");
+                                        Console.WriteLine("Cliente inexistente");
                                         break;
                                     }
 
@@ -244,13 +245,28 @@ namespace Tetris
                                         {
                                             if (tmp != null)
                                             {
-                                                ApresentarCardapio();
-                                                Console.WriteLine("Digite o id do produto a ser adicionado ao pedido");
-                                                int idProduto = int.Parse(Console.ReadLine());
-                                                restaurante.incluirProduto(idProduto, nome);
-                                                Console.WriteLine("Produto inserido com sucesso!!");
-                                                entradaValida = true;
-                                                Console.ReadKey();
+                                                try
+                                                {
+                                                    ApresentarCardapio();
+                                                    Console.WriteLine("Digite o id do produto a ser adicionado ao pedido");
+                                                    int idProduto = int.Parse(Console.ReadLine());
+                                                    restaurante.incluirProduto(idProduto, nome);
+                                                    Console.WriteLine("Produto inserido com sucesso!!");
+                                                    entradaValida = true;
+                                                    Console.ReadKey();
+                                                }
+                                                catch (NullReferenceException ex)
+                                                {
+                                                    Console.WriteLine(ex.Message);
+                                                    Console.ReadKey();
+                                                    break;
+                                                }
+                                                catch (Exception ex)
+                                                {
+                                                    Console.WriteLine("Ocorreu um erro");
+                                                    Console.ReadKey();
+                                                    break;
+                                                }
                                             }
                                             else
                                             {
@@ -384,7 +400,7 @@ namespace Tetris
                                         Console.WriteLine("Digite o nome do cliente: ");
                                         nome = Console.ReadLine();
                                         nomeLivre = VerificarNome(nome);
-                                        if (nomeLivre == true)
+                                        if (nomeLivre == true && !String.IsNullOrWhiteSpace(nome))
                                         {
                                             Cliente cliente1 = new Cliente(nome);
                                             clientes.Add(cliente1);
