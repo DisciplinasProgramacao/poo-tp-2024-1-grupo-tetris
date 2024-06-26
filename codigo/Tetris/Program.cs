@@ -26,9 +26,6 @@ namespace Tetris
 
         internal static bool VerificarNome(string nome)
         {
-            if (nome == null || nome == " ")
-                return false;
-            else
             {
 
 
@@ -98,6 +95,7 @@ namespace Tetris
                                         Console.WriteLine("Digite o nome do cliente: ");
                                         nome = Console.ReadLine();
                                         entradaValida = VerificarNome(nome);
+
                                         if (entradaValida == true && !String.IsNullOrWhiteSpace(nome))
                                         {
                                             Cliente cliente1 = new Cliente(nome);
@@ -178,7 +176,7 @@ namespace Tetris
                                                     }
 
                                                 } while (quantidade <= 0 || quantidade > 8);
-                                                restaurante.solicitarMesa(tmp, quantidade);
+                                                restaurante.CriarRequisicao(tmp, quantidade);
                                                 entradaValida = true;
                                                 Console.ReadKey();
                                             }
@@ -291,7 +289,7 @@ namespace Tetris
 
                                                     } while (quantidade <= 0 || quantidade >= 8);
 
-                                                    restaurante.solicitarMesa(tmp, quantidade);
+                                                    restaurante.CriarRequisicao(tmp, quantidade);
                                                     entradaValida = true;
 
                                                 }
@@ -328,7 +326,7 @@ namespace Tetris
 
                                                 } while (quantidade <= 0 || quantidade >= 8);
 
-                                                restaurante.solicitarMesa(tmp, quantidade);
+                                                restaurante.CriarRequisicao(tmp, quantidade);
                                                 entradaValida = true;
                                             }
                                             else if (tentativa == "n")
@@ -405,7 +403,7 @@ namespace Tetris
                                             Cliente cliente1 = new Cliente(nome);
                                             clientes.Add(cliente1);
                                             Console.WriteLine("Cliente adicionado com sucesso!");
-                                            cafeteria.CriarComanda(cliente1);
+                                            cafeteria.CriarRequisicao(cliente1, 1);
                                             Console.ReadKey();
                                         }
                                         else

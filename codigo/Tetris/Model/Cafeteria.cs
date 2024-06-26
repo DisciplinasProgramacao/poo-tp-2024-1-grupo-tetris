@@ -8,42 +8,44 @@ namespace Tetris.Model
 {
     internal class Cafeteria : Estabelecimento
     {
-        List<Comanda> comandas;
+        List<Requisicao> requisicoesAtuais;
         public Cafeteria() 
         {
-            comandas = new List<Comanda>();
+            requisicoesAtuais = new List<Requisicao>();
             cardapio = new CardapioCafeteria();
             
         }
 
-        public Comanda CriarComanda(Cliente cliente)
+        public override Requisicao CriarRequisicao(Cliente cliente, int quantidade)
         {
-            Comanda tmp = new Comanda(cliente);
-            comandas.Add(tmp);
+            Requisicao tmp = new Requisicao(cliente, quantidade);
+            requisicoesAtuais.Add(tmp);
             return tmp;
         }
 
         public override double FecharConta(string nome)
         {
-            Comanda tmp = BuscaComanda(nome);
-            comandas.Remove(tmp);
+            Requisicao tmp = buscaRequisicao(nome);
+            requisicoesAtuais.Remove(tmp);
             Console.WriteLine(tmp.ToString());
-            return tmp.TotalPedido();
+            return tmp.fecharConta();
 
         }
 
-        private Comanda BuscaComanda(string nome)
+        protected override Requisicao buscaRequisicao(string nome)
         {
-            Comanda tmpComanda = comandas.Where(x => x.GetCliente().GetNome() == nome).SingleOrDefault();
+            Requisicao? requisicao = requisicoesAtuais.FirstOrDefault(x => x.GetCliente().GetNome() == nome);
 
-            return tmpComanda;
-
-            throw new NullReferenceException("Comanda inexistente");
+            if (requisicao != null)
+                return requisicao;
+            else
+                throw new NullReferenceException();
         }
+        
         public override Produto incluirProduto(int idProduto, string nome)
         {
             Produto produto = cardapio.BuscarProduto(idProduto);
-            Comanda comanda = BuscaComanda(nome);
+            Requisicao comanda = buscaRequisicao(nome);
             if (comanda != null && produto != null)
             {
                 comanda.ReceberProduto(produto);
@@ -57,14 +59,14 @@ namespace Tetris.Model
 
         public override Pedido BuscarPedidos(Cliente cliente)
         {
-            var pedido = comandas.Where(x => x.GetCliente() == cliente)
-                .Select(x => x.GetPedido())
-                .FirstOrDefault();
-
-            if(pedido == null)
-             throw new NullReferenceException("Não existe pedidos para o cliente ");
-
-            return pedido;
+            Pedido pedido = requisicoesAtuais.FirstOrDefault(x => x.GetCliente() == cliente)?.GetPedido();
+            
+            if (pedido == null)
+            {
+                throw new NullReferenceException("Pedido não encontrado para o cliente especificado.");
+            }
+            else
+                return pedido;
         }
     }
 }

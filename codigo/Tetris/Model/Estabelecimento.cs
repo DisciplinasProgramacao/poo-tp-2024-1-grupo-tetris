@@ -9,6 +9,7 @@ namespace Tetris.Model
     internal abstract class Estabelecimento : Entidade
     {
         protected Cardapio cardapio;
+        List<Requisicao> requisicoesAtuais;
 
         
 
@@ -21,6 +22,10 @@ namespace Tetris.Model
         {
             return cardapio.BuscarProduto(idProduto);
         }
+
+        protected abstract Requisicao buscaRequisicao(string nome);
+
+        public abstract Requisicao CriarRequisicao(Cliente cliente, int quantidade);
 
         public abstract Produto incluirProduto(int idProduto, string nome);
 

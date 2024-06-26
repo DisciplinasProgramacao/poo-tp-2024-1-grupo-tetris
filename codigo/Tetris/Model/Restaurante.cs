@@ -48,7 +48,7 @@ namespace Tetris.Model
         /// </summary>
         /// <param name="cliente">Cliente que solicitou a mesa.</param>
         /// <param name="qtdPessoas">Quantidade de pessoas para a mesa.</param>
-        public Requisicao solicitarMesa(Cliente cliente, int qtdPessoas)
+        public override Requisicao CriarRequisicao(Cliente cliente, int qtdPessoas)
         {
             Requisicao requisicao = new Requisicao(cliente, qtdPessoas);
             listaEspera.Add(requisicao);
@@ -150,7 +150,7 @@ namespace Tetris.Model
         }
 
         
-        public Requisicao buscaRequisicao(string nome)
+        protected override Requisicao buscaRequisicao(string nome)
         {
             Requisicao requisicao = requisicoesAtuais.FirstOrDefault(x => x.GetCliente().GetNome() == nome);
 
@@ -169,7 +169,6 @@ namespace Tetris.Model
                 return requisicao;
             else
                 throw new NullReferenceException("Requisicao não existe");
-             
         }
 
 
@@ -191,19 +190,17 @@ namespace Tetris.Model
 
         public override Pedido BuscarPedidos(Cliente cliente)
         {
-            if (requisicoesAtuais.Count == 0)
-                throw new NullReferenceException("Não existe requisições para este cliente. ");
-            var pedido = requisicoesAtuais.FirstOrDefault(x => x.GetCliente() == cliente).GetPedido();
-            if (pedido != null)
+            var pedido = requisicoesAtuais.FirstOrDefault(x => x.GetCliente() == cliente)?.GetPedido();
+            if (pedido == null)
+            {
+                pedido = listaEspera.FirstOrDefault(x => x.GetCliente() == cliente)?.GetPedido();
+            }
+            if (pedido == null)
+            {
+                throw new NullReferenceException("Pedido não encontrado para o cliente especificado.");
+            }
+            else
                 return pedido;
-
-
-            var pedidoListaEspera = listaEspera.FirstOrDefault(x => x.GetCliente() == cliente).GetPedido();
-
-            if (pedidoListaEspera != null)
-                return pedidoListaEspera;
-
-            throw new NullReferenceException("Não existe pedidos para o cliente ");
         }
 
         public override string ToString()
