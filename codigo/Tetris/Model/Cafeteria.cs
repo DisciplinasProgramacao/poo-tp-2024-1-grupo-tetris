@@ -59,7 +59,7 @@ namespace Tetris.Model
 
         public override Pedido BuscarPedidos(Cliente cliente)
         {
-            Pedido pedido = requisicoesAtuais.FirstOrDefault(x => x.GetCliente() == cliente)?.GetPedido();
+            Pedido? pedido = requisicoesAtuais.FirstOrDefault(x => x.GetCliente() == cliente)?.GetPedido();
             
             if (pedido == null)
             {
