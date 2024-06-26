@@ -98,7 +98,7 @@ namespace Tetris
                                         Console.WriteLine("Digite o nome do cliente: ");
                                         nome = Console.ReadLine();
                                         entradaValida = VerificarNome(nome);
-                                        if (entradaValida == true)
+                                        if (entradaValida == true && !String.IsNullOrWhiteSpace(nome))
                                         {
                                             Cliente cliente1 = new Cliente(nome);
                                             clientes.Add(cliente1);
@@ -117,6 +117,7 @@ namespace Tetris
                                 case 2:
                                     do
                                     {
+
                                         Console.WriteLine("Digite o nome do Cliente: ");
                                         nome = Console.ReadLine();
                                         tmp = VerificarCliente(nome);
@@ -138,7 +139,6 @@ namespace Tetris
                                         catch (NullReferenceException)
                                         {
                                             Console.WriteLine("Não existem pedidos para esse cliente, Adicione um pedido primeiro!!");
-                                            Console.ReadKey();
                                             entradaValida = false;
                                             break;
                                         }
@@ -163,7 +163,6 @@ namespace Tetris
                                             {
                                                 Console.WriteLine("O cliente já tem uma requisição!");
                                                 entradaValida = true;
-                                                Console.ReadKey();
 
                                             }
                                             else
@@ -181,7 +180,6 @@ namespace Tetris
                                                 } while (quantidade <= 0 || quantidade > 8);
                                                 restaurante.solicitarMesa(tmp, quantidade);
                                                 entradaValida = true;
-                                                Console.WriteLine("Sucesso");
                                                 Console.ReadKey();
                                             }
                                         }
@@ -189,7 +187,6 @@ namespace Tetris
                                         {
                                             Console.WriteLine("Cliente inexistente, primeiro adicione um cliente com esse nome!");
                                             entradaValida = false;
-                                            Console.ReadKey();
                                             break;
 
                                         }
@@ -218,7 +215,6 @@ namespace Tetris
                                             catch (NullReferenceException)
                                             {
                                                 Console.WriteLine("Esse cliente não tem uma requisicão ainda por favor crie uma!");
-                                                Console.ReadKey();
                                                 break;
 
                                             }
@@ -228,7 +224,6 @@ namespace Tetris
                                         {
                                             Console.WriteLine("Cliente inexistente, primeiro adicione um cliente!");
                                             entradaValida = false;
-                                            Console.ReadKey();
                                             break;
                                         }
                                     } while (entradaValida == false);
@@ -238,44 +233,40 @@ namespace Tetris
                                     Console.WriteLine("Digite o nome do cliente por favor: ");
                                     nome = Console.ReadLine();
                                     tmp = VerificarCliente(nome);
-                                    
+                                    if (tmp == null)
+                                    {
+                                        Console.WriteLine("Cliente inexistente");
+                                        break;
+                                    }
+
                                     do
                                     {
                                         try
                                         {
                                             if (tmp != null)
                                             {
-                                                bool continua;
-                                                do
+                                                try
                                                 {
-                                                    Console.Clear();
                                                     ApresentarCardapio();
                                                     Console.WriteLine("Digite o id do produto a ser adicionado ao pedido");
                                                     int idProduto = int.Parse(Console.ReadLine());
                                                     restaurante.incluirProduto(idProduto, nome);
                                                     Console.WriteLine("Produto inserido com sucesso!!");
                                                     entradaValida = true;
-                                                    Console.WriteLine("Deseja adicionar outro pedido?");
-                                                    tentativa = Console.ReadLine().ToLower();
-                                                    if(tentativa == "s")
-                                                    {
-                                                        continua = true;
-                                                    }
-                                                    else
-                                                    {
-                                                        if(tentativa == "n")
-                                                        {
-                                                            continua = false;
-                                                        }
-                                                        else
-                                                        {
-                                                            Console.WriteLine("Opção inválida! tente novamente");
-                                                            continua = true;
-                                                        }
-                                                    }
                                                     Console.ReadKey();
-                                                } while (continua = true);
-                                                
+                                                }
+                                                catch (NullReferenceException ex)
+                                                {
+                                                    Console.WriteLine(ex.Message);
+                                                    Console.ReadKey();
+                                                    break;
+                                                }
+                                                catch (Exception ex)
+                                                {
+                                                    Console.WriteLine("Ocorreu um erro");
+                                                    Console.ReadKey();
+                                                    break;
+                                                }
                                             }
                                             else
                                             {
@@ -301,9 +292,7 @@ namespace Tetris
                                                     } while (quantidade <= 0 || quantidade >= 8);
 
                                                     restaurante.solicitarMesa(tmp, quantidade);
-                                                    Console.WriteLine("Sucesso!");
                                                     entradaValida = true;
-                                                    Console.ReadKey();
 
                                                 }
                                                 else if (tentativa == "n")
@@ -314,7 +303,6 @@ namespace Tetris
                                                 {
                                                     Console.WriteLine("Opcao inválida, tente novamente");
                                                     entradaValida = false;
-                                                    Console.ReadKey();
                                                 }
 
 
@@ -336,14 +324,12 @@ namespace Tetris
                                                     if (quantidade <= 0 || quantidade >= 8)
                                                     {
                                                         Console.WriteLine("Quantidade invalida!");
-                                                        Console.ReadKey();
                                                     }
 
                                                 } while (quantidade <= 0 || quantidade >= 8);
 
                                                 restaurante.solicitarMesa(tmp, quantidade);
                                                 entradaValida = true;
-                                                Console.ReadKey();
                                             }
                                             else if (tentativa == "n")
                                             {
@@ -353,7 +339,6 @@ namespace Tetris
                                             {
                                                 Console.WriteLine("Opcao inválida tente novamente");
                                                 entradaValida = false;
-                                                Console.ReadKey();
                                             }
 
 
@@ -415,7 +400,7 @@ namespace Tetris
                                         Console.WriteLine("Digite o nome do cliente: ");
                                         nome = Console.ReadLine();
                                         nomeLivre = VerificarNome(nome);
-                                        if (nomeLivre == true)
+                                        if (nomeLivre == true && !String.IsNullOrWhiteSpace(nome))
                                         {
                                             Cliente cliente1 = new Cliente(nome);
                                             clientes.Add(cliente1);

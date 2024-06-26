@@ -191,19 +191,20 @@ namespace Tetris.Model
 
         public override Pedido BuscarPedidos(Cliente cliente)
         {
-            // Procura na lista de requisições atuais
-            var pedido = requisicoesAtuais.FirstOrDefault(x => x.GetCliente() == cliente)?.GetPedido();
-            if (pedido == null)
-            {
-                pedido = listaEspera.FirstOrDefault(x => x.GetCliente() == cliente)?.GetPedido();
-            }
-            if(pedido == null)
-            {
-                throw new NullReferenceException();
-            }
-            return pedido; 
-        }
+            if (requisicoesAtuais.Count == 0)
+                throw new NullReferenceException("Não existe requisições para este cliente. ");
+            var pedido = requisicoesAtuais.FirstOrDefault(x => x.GetCliente() == cliente).GetPedido();
+            if (pedido != null)
+                return pedido;
 
+
+            var pedidoListaEspera = listaEspera.FirstOrDefault(x => x.GetCliente() == cliente).GetPedido();
+
+            if (pedidoListaEspera != null)
+                return pedidoListaEspera;
+
+            throw new NullReferenceException("Não existe pedidos para o cliente ");
+        }
 
         public override string ToString()
         {
