@@ -36,6 +36,8 @@ namespace Tetris.Model
         {
             Comanda tmpComanda = comandas.Where(x => x.GetCliente().GetNome() == nome).SingleOrDefault();
 
+            return tmpComanda;
+
             throw new NullReferenceException("Comanda inexistente");
         }
         public override Produto incluirProduto(int idProduto, string nome)

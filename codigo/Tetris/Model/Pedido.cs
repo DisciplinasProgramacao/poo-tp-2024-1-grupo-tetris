@@ -32,7 +32,7 @@ namespace Tetris.Model
             StatusPedidoAberto = true;
         }
 
-        public double CalcularValorTotal() => this.Itens.Sum(x => x.valor);
+        public double CalcularValorTotal() => this.Itens.Sum(x => x.valor + (x.valor * TX_SERVICO));
 
         public double CalcularDivisaoValor(int quantidadeDivisões)
         {
