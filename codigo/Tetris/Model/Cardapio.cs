@@ -12,7 +12,6 @@ namespace Tetris.Model
         protected Dictionary<int, Produto> comidas;
         protected Dictionary<int, Produto> bebidas;
 
-
         public Cardapio()
         {
             comidas = new Dictionary<int, Produto>();
@@ -44,9 +43,7 @@ namespace Tetris.Model
             throw new NullReferenceException(); // Produto não encontrado
         }
 
-
-
-         /// <summary>
+        /// <summary>
         /// Concatena todos os produtos para ser exibido
         /// </summary>
         /// <returns>To String para impressão.</returns>
@@ -68,7 +65,4 @@ namespace Tetris.Model
             
         }
     }
-
-  
-
 }

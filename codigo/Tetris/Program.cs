@@ -15,11 +15,12 @@ namespace Tetris
         static bool entradaValida;
 
         #endregion
-
+        // Método que chama a função ApresentarCardapio do objeto estabelecimento
         internal static void ApresentarCardapio()
         {
             estabelecimento.ApresentarCardapio();
         }
+        // Método que limpa a tela e imprime o cabeçalho do projeto
         internal static void cabecalho()
         {
             Console.Clear();
@@ -27,7 +28,7 @@ namespace Tetris
             Console.WriteLine("==============================");
         }
 
-        
+        // Método que adiciona um cliente à lista de clientes
         internal static void AdicionarCliente()
         {
             do
@@ -53,7 +54,7 @@ namespace Tetris
             }
             while (entradaValida == false);
         }
-
+        // Método sobrecarregado para adicionar um cliente e criar uma requisição com uma quantidade específica
         internal static void AdicionarCliente(int quantidade)
         {
             do
@@ -80,6 +81,7 @@ namespace Tetris
             }
             while (entradaValida == false);
         }
+        // Método que verifica os pedidos de um cliente específico
         internal static void VerificarPedidos()
         {
             do
@@ -116,7 +118,7 @@ namespace Tetris
             } while (entradaValida == false);
             
         }
-
+        // Método que fecha os pedidos de um cliente específico
         internal static void FecharPedidos()
         {
             do
@@ -152,12 +154,12 @@ namespace Tetris
                 }
             } while (entradaValida == false);
         }
-
+        // Método que verifica se um cliente está na lista de clientes
         internal static Cliente VerificarCliente(string nome)
         {
             return clientes.Where(x => x.GetNome() == nome).SingleOrDefault();
         }
-
+        // Método que verifica se o nome do cliente é válido
         internal static bool VerificarNome(string nome)
         {
             {
@@ -177,7 +179,7 @@ namespace Tetris
 
         }
 
-
+        // Método principal que exibe o menu e executa as funcionalidades do programa
         internal static void Main(string[] args)
         {
             
@@ -599,13 +601,6 @@ namespace Tetris
                 }
 
             } while (escolha != 0);
-
-
-
-
-
-
-
 
         }
     }

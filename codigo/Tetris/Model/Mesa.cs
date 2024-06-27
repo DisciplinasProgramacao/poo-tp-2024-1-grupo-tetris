@@ -58,7 +58,7 @@ namespace Tetris.Model
             else
                 return false;
         }
-
+        // Método sobrescrito da classe Object para retornar uma representação em string das informações de uma mesa
         public override string ToString()
         {
             return "\n Id mesa: " + Id + " capacidade " + capacidade + " lugares" + " ocupada: " + IsOcupada;

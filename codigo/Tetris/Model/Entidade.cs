@@ -11,12 +11,12 @@ namespace Tetris.Model
         private static Dictionary<Type, int> _proximosIds = new Dictionary<Type, int>();
 
         protected int Id;
-
+        // Construtor protegido da classe Entidade
         protected Entidade()
         {
             Id = GerarId();
         }
-
+        // Método privado para gerar um ID único para a instância
         private int GerarId()
         {
             Type tipo = GetType();
@@ -29,7 +29,7 @@ namespace Tetris.Model
             _proximosIds[tipo]++;
             return idAtual;
         }
-
+        // Método virtual para obter o ID da instância
         public virtual int GetId()
         {
             return Id;

@@ -84,14 +84,14 @@ namespace Tetris.Model
             mesa = tmpMesa;
             return mesa;
         }
-
+        // Método para encerrar a requisição e registrar a hora de saída do cliente
         public DateTime EncerrarRequisicao()
         {
             saidaCliente = DateTime.Now;
             return saidaCliente;
         }
 
-
+        // Método sobrescrito da classe Object para retornar uma representação em string da requisição
         public override string ToString()
         {
             if (mesa != null)

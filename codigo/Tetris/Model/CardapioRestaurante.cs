@@ -10,7 +10,7 @@ namespace Tetris.Model
     
     internal class CardapioRestaurante : Cardapio
     {
-
+        // Construtor da classe CardapioRestaurante
         public CardapioRestaurante() 
         {
             comidas = new Dictionary<int, Produto>();
@@ -18,6 +18,7 @@ namespace Tetris.Model
             InicializarCardapio();
 
         }
+        // Método protegido sobrescrito da classe base para inicializar o cardápio
         protected override void InicializarCardapio()
         {
            

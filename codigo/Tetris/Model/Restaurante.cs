@@ -105,7 +105,11 @@ namespace Tetris.Model
             }
             return null;
         }
-
+        /// <summary>
+        /// Fecha a conta de um cliente especificado pelo nome.
+        /// </summary>
+        /// <param name="nome">Nome do cliente.</param>
+        /// <returns>O valor total da conta fechada.</returns>
         
         public override double FecharConta(string nome)
         {
@@ -135,7 +139,11 @@ namespace Tetris.Model
             requisicoesAtuais.Remove(requisicao);
             return requisicao;
         }
-
+        /// <summary>
+        /// Remove uma requisição da lista de espera com base no ID da requisição.
+        /// </summary>
+        /// <param name="idRequisicao">ID da requisição a ser removida.</param>
+        /// <returns>A requisição removida.</returns>
         public Requisicao RemoverListaEspera(int idRequisicao)
         {
             Requisicao requisicao = listaEspera.FirstOrDefault(x => x.GetId() == idRequisicao);
@@ -149,7 +157,11 @@ namespace Tetris.Model
                 throw new NullReferenceException();
         }
 
-        
+        /// <summary>
+        /// Busca uma requisição associada ao cliente pelo nome.
+        /// </summary>
+        /// <param name="nome">Nome do cliente.</param>
+        /// <returns>A requisição encontrada.</returns>
         protected override Requisicao buscaRequisicao(string nome)
         {
             Requisicao requisicao = requisicoesAtuais.FirstOrDefault(x => x.GetCliente().GetNome() == nome);
@@ -171,7 +183,12 @@ namespace Tetris.Model
                 throw new NullReferenceException();
         }
 
-
+        /// <summary>
+        /// Inclui um produto na requisição associada ao cliente pelo nome.
+        /// </summary>
+        /// <param name="idProduto">ID do produto a ser incluído.</param>
+        /// <param name="nome">Nome do cliente.</param>
+        /// <returns>O produto incluído na requisição.</returns>
 
         public override Produto incluirProduto(int idProduto, string nome)
         {
@@ -188,6 +205,11 @@ namespace Tetris.Model
             }
         }
 
+        /// <summary>
+        /// Busca os pedidos associados ao cliente.
+        /// </summary>
+        /// <param name="cliente">Cliente cujo pedido será buscado.</param>
+        /// <returns>O pedido encontrado.</returns>
         public override Pedido BuscarPedidos(Cliente cliente)
         {
             var pedido = requisicoesAtuais.FirstOrDefault(x => x.GetCliente() == cliente)?.GetPedido();
@@ -202,6 +224,11 @@ namespace Tetris.Model
             else
                 return pedido;
         }
+
+        /// <summary>
+        /// Retorna uma representação em string do estado atual do restaurante.
+        /// </summary>
+        /// <returns>String com informações das mesas, requisições atuais e lista de espera.</returns>
 
         public override string ToString()
         {
