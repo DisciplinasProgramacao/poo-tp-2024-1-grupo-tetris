@@ -160,24 +160,7 @@ namespace Tetris
             return clientes.Where(x => x.GetNome() == nome).SingleOrDefault();
         }
         // Método que verifica se o nome do cliente é válido
-        internal static bool VerificarNome(string nome)
-        {
-            {
-
-
-                if (clientes != null)
-                {
-                    foreach (Cliente cliente in clientes)
-                    {
-                        if (cliente.GetNome() == nome)
-                            return false;
-                    }
-                    return true;
-                }
-                return true;
-            }
-
-        }
+        internal static bool VerificarNome(string nome) => clientes.FirstOrDefault(x => x.GetNome() == nome) != null ? false : true;
 
         // Método principal que exibe o menu e executa as funcionalidades do programa
         internal static void Main(string[] args)
